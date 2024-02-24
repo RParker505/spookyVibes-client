@@ -13,7 +13,7 @@ const MyFlixApplication = () => {
 };
 
 //Finds the root of your app
-const constainer = document.querySelector("#root");
+const container = document.querySelector("#root");
 const root = createRoot(container);
 
 //Tells React to render app in the root DOM element
