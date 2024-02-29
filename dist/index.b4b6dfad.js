@@ -27472,6 +27472,7 @@ const MovieView = ({ movieData, onBackClick })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     height: 300,
+                    alt: `${movieData.Title} poster`,
                     src: movieData.ImagePath
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",

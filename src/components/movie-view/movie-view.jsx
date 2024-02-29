@@ -2,7 +2,7 @@ export const MovieView = ({movieData, onBackClick}) => {
     return (
         <div>
             <div>
-                <img height={300} alt="{movieData.Title} + ' poster'" src={movieData.ImagePath} />
+                <img height={300} alt={`${movieData.Title} poster`} src={movieData.ImagePath} />
             </div>
             <div>
                 <span>Title: </span>
