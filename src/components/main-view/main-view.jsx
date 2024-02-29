@@ -54,7 +54,7 @@ export const MainView = () => {
                 return (
                     <MovieCard
                         key={movie._id}
-                        movieData={movie}//pass movie object from each map iteration to MovieCard component
+                        movieData={movie}//pass movie object from each map iteration to MovieCard component in the movieData prop
                         onMovieClick={(newSelectedMovie) => {
                             setSelectedMovie(newSelectedMovie);
                         }}
