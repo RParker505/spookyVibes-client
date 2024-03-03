@@ -17,6 +17,7 @@ export const MainView = () => {
                         id: movie._id,
                         title: movie.Title,
                         image: `https://covers.openlibrary.org/b/id/${movie.ImagePath}-L.jpg`,
+                        description: movie.Description,
                         director: movie.Director,
                         genre: movie.Genre
                     };
