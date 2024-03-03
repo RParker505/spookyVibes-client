@@ -27189,7 +27189,7 @@ const MainView = ()=>{
                 return {
                     id: movie._id,
                     title: movie.Title,
-                    image: `https://covers.openlibrary.org/b/id/${movie.ImagePath}-L.jpg`,
+                    image: movie.ImagePath,
                     description: movie.Description,
                     director: movie.Director,
                     genre: movie.Genre
