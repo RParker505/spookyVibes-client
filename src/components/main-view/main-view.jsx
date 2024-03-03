@@ -8,6 +8,23 @@ export const MainView = () => {
 
     const [selectedMovie, setSelectedMovie] = useState(null); //initial state will be null so movie details will not be visible
 
+    useEffect (() => {
+        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies")
+            .then((response) => response.json())
+            .then((data) => {
+                const moviesFromApi = data.docs.map((movie) => {
+                    return {
+                        id: movie._id,
+                        title: movie.Title,
+                        image: `https://covers.openlibrary.org/b/id/${movie.ImagePath}-L.jpg`,
+                        director: movie.Director,
+                        genre: movie.Genre
+                    };
+                });
+                setMovies(moviesFromApi);
+            });
+    }, []);
+
     if (selectedMovie) {
         return (
             <MovieView
