@@ -27191,12 +27191,8 @@ const MainView = ()=>{
                     title: movie.Title,
                     image: movie.ImagePath,
                     description: movie.Description,
-                    director: {
-                        Name: movie.Director.Name
-                    },
-                    genre: {
-                        Name: movie.Genre.Name
-                    }
+                    director: movie.Director.Name,
+                    genre: movie.Genre.Name
                 };
             });
             setMovies(moviesFromApi);
@@ -27207,14 +27203,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 35,
+        lineNumber: 31,
         columnNumber: 13
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 43,
+        lineNumber: 39,
         columnNumber: 16
     }, undefined);
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27226,13 +27222,13 @@ const MainView = ()=>{
                 }
             }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 49,
+                lineNumber: 45,
                 columnNumber: 21
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 46,
+        lineNumber: 42,
         columnNumber: 12
     }, undefined);
 };
