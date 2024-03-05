@@ -27185,7 +27185,7 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null); //initial state will be null so movie details will not be visible
     (0, _react.useEffect)(()=>{
         fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.docs.map((movie)=>{
+            const moviesFromApi = data.map((movie)=>{
                 return {
                     id: movie._id,
                     title: movie.Title,
