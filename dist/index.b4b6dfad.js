@@ -27185,14 +27185,18 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null); //initial state will be null so movie details will not be visible
     (0, _react.useEffect)(()=>{
         fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.map((movie)=>{
+            const moviesFromApi = data.docs.map((movie)=>{
                 return {
                     id: movie._id,
                     title: movie.Title,
                     image: movie.ImagePath,
                     description: movie.Description,
-                    director: movie.Director,
-                    genre: movie.Genre
+                    director: {
+                        Name: movie.Director.Name
+                    },
+                    genre: {
+                        Name: movie.Genre.Name
+                    }
                 };
             });
             setMovies(moviesFromApi);
@@ -27203,14 +27207,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 31,
+        lineNumber: 35,
         columnNumber: 13
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 39,
+        lineNumber: 43,
         columnNumber: 16
     }, undefined);
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27222,13 +27226,13 @@ const MainView = ()=>{
                 }
             }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 45,
+                lineNumber: 49,
                 columnNumber: 21
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 42,
+        lineNumber: 46,
         columnNumber: 12
     }, undefined);
 };

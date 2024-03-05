@@ -12,14 +12,18 @@ export const MainView = () => {
         fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies")
             .then((response) => response.json())
             .then((data) => {
-                const moviesFromApi = data.map((movie) => {
+                const moviesFromApi = data.docs.map((movie) => {
                     return {
                         id: movie._id,
                         title: movie.Title,
                         image: movie.ImagePath,
                         description: movie.Description,
-                        director: movie.Director,
-                        genre: movie.Genre
+                        director: {
+                            Name: movie.Director.Name
+                        },
+                        genre: {
+                            Name: movie.Genre.Name
+                        }
                     };
                 });
                 setMovies(moviesFromApi);
