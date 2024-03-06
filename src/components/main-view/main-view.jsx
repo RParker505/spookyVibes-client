@@ -12,7 +12,7 @@ export const MainView = () => {
         fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies")
             .then((response) => response.json())
             .then((data) => {
-                const moviesFromApi = data.docs.map((movie) => {
+                const moviesFromApi = data.map((movie) => {
                     return {
                         id: movie._id,
                         title: movie.Title,
