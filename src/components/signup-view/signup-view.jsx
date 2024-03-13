@@ -7,6 +7,7 @@ export const SignupView = () => {
     const [email, setEmail] = useState("");
     const [birthday, setBirthday] = useState("");
     
+    //Once form is submitted, handleSubmit will make a call to the API and pass the data from the form
     const handleSubmit = (event) => {
         event.preventDefault();
 
