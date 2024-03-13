@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import {MovieCard} from "../movie-card/movie-card"; //component to display single movie title
 import {MovieView} from "../movie-view/movie-view"; //component to display all details for a movie
 import {LoginView} from "../login-view/login-view"; //component to display login form
+import {SignupView} from "../signup-view/signup-view"; //component to display signup form
 
 
 //export MainView component to make it avl for use in other components, modules
@@ -40,12 +41,16 @@ export const MainView = () => {
 
     if (!user) {
         return (
+            <>
             <LoginView
                 onLoggedIn={(user, token) => {
                     setUser(user);
                     setToken(token);
-                }}
-            /> //store token and user as state variables, pass onLoggedIn prop to LoginView
+                }} //store token and user as state variables, pass onLoggedIn prop to LoginView
+            />
+            or
+            <SignupView />
+            </>
         );
     }
 
