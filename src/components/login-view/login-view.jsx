@@ -9,19 +9,28 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password,
+      Username: username,
+      Password: password,
     };
 
     fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/login", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(data),
-    }).then((response) => {
-      if (response.ok) {
-        onLoggedIn(username);
+    })
+      .then((response) => response.json())//transform response into JSON object to extract JWT from spookyVibes API
+      .then((data) => {
+        console.log("Login response: ", data);
+        if (data.user) {
+          onLoggedIn(data.user, data.token);//pass user and token back to MainView to be used in subsequent API requests
       } else {
-        alert("Login failed");
+        alert("No such user");
       }
+    })
+      .catch((e) => {
+        alert("Something went wrong");
     });
   };
 
