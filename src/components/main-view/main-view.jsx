@@ -15,7 +15,13 @@ export const MainView = () => {
     const [token, setToken] = useState(null);
 
     useEffect (() => {
-        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies")
+        if (!token) {
+            return;
+        }//no fetch done if there is no token
+
+        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies", {
+            headers: {Authorization: `Bearer ${token}`}
+        })
             .then((response) => response.json())
             .then((data) => {
                 const moviesFromApi = data.map((movie) => {
@@ -30,7 +36,7 @@ export const MainView = () => {
                 });
                 setMovies(moviesFromApi);
             });
-    }, []);
+    }, [token]);//token as dependency array will fetch every time token changes (i.e. after a user logs in)
 
     if (!user) {
         return (
@@ -60,6 +66,7 @@ export const MainView = () => {
             <button
                 onClick={() => {
                     setUser(null);
+                    setToken(null);
                 }}
             >
                 Logout
