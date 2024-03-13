@@ -12,6 +12,8 @@ export const MainView = () => {
 
     const [user, setUser] = useState(null); //if user is logged in, biz as usual; if not, display LoginView
 
+    const [token, setToken] = useState(null);
+
     useEffect (() => {
         fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies")
             .then((response) => response.json())
@@ -31,7 +33,14 @@ export const MainView = () => {
     }, []);
 
     if (!user) {
-        return <LoginView onLoggedIn={(user) => setUser(user)} /> //pass onLoggedIn prop to LoginView
+        return (
+            <LoginView
+                onLoggedIn={(user, token) => {
+                    setUser(user);
+                    setToken(token);
+                }}
+            /> //store token and user as state variables, pass onLoggedIn prop to LoginView
+        );
     }
 
     if (selectedMovie) {
