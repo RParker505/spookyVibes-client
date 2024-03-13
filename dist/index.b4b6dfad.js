@@ -28423,8 +28423,11 @@ const LoginView = ({ onLoggedIn })=>{
         }).then((response)=>response.json()) //transform response into JSON object to extract JWT from spookyVibes API
         .then((data)=>{
             console.log("Login response: ", data);
-            if (data.user) onLoggedIn(data.user, data.token); //pass user and token back to MainView to be used in subsequent API requests
-            else alert("No such user");
+            if (data.user) {
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("token", data.token); //store user and token locally to keep them logged in
+                onLoggedIn(data.user, data.token); //pass user and token back to MainView to be used in subsequent API requests
+            } else alert("No such user");
         }).catch((e)=>{
             alert("Something went wrong");
         });
@@ -28442,13 +28445,13 @@ const LoginView = ({ onLoggedIn })=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 41,
+                        lineNumber: 43,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 39,
+                lineNumber: 41,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28461,13 +28464,13 @@ const LoginView = ({ onLoggedIn })=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 50,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 48,
+                lineNumber: 50,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28475,13 +28478,13 @@ const LoginView = ({ onLoggedIn })=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 57,
+                lineNumber: 59,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 38,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
