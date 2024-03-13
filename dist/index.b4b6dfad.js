@@ -27182,10 +27182,12 @@ var _loginView = require("../login-view/login-view"); //component to display log
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null); //initial state will be null so movie details will not be visible
-    const [user, setUser] = (0, _react.useState)(null); //if user is logged in, biz as usual; if not, display LoginView
-    const [token, setToken] = (0, _react.useState)(null);
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null); //if user is logged in, biz as usual; if not, display LoginView
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null); //on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
     (0, _react.useEffect)(()=>{
         if (!token) return;
          //no fetch done if there is no token
@@ -27267,7 +27269,7 @@ const MainView = ()=>{
         columnNumber: 12
     }, undefined);
 };
-_s(MainView, "ld1mNqbzEgxPu9ZfASjBJ7ZrUMw=");
+_s(MainView, "ITI+7nrXwcnncruLQKDGZu7mcw8=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");

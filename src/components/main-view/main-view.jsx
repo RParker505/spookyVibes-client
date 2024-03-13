@@ -6,13 +6,13 @@ import {LoginView} from "../login-view/login-view"; //component to display login
 
 //export MainView component to make it avl for use in other components, modules
 export const MainView = () => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
+
     const [movies, setMovies] = useState([]);
-
     const [selectedMovie, setSelectedMovie] = useState(null); //initial state will be null so movie details will not be visible
-
-    const [user, setUser] = useState(null); //if user is logged in, biz as usual; if not, display LoginView
-
-    const [token, setToken] = useState(null);
+    const [user, setUser] = useState(storedUser? storedUser: null); //if user is logged in, biz as usual; if not, display LoginView
+    const [token, setToken] = useState(storedToken? storedToken: null);//on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
 
     useEffect (() => {
         if (!token) {
