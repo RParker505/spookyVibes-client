@@ -27190,7 +27190,7 @@ const MainView = ()=>{
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null); //on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
     (0, _react.useEffect)(()=>{
         if (!token) return;
-         //no fetch done if there is no token
+         //no fetch done if there is no token (no user logged in)
         fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -27243,6 +27243,7 @@ const MainView = ()=>{
                 onClick: ()=>{
                     setUser(null);
                     setToken(null);
+                    localStorage.clear();
                 },
                 children: "Logout"
             }, void 0, false, {
@@ -27258,7 +27259,7 @@ const MainView = ()=>{
                     }
                 }, movie.id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 76,
+                    lineNumber: 77,
                     columnNumber: 21
                 }, undefined);
             })

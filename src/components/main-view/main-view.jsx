@@ -17,7 +17,7 @@ export const MainView = () => {
     useEffect (() => {
         if (!token) {
             return;
-        }//no fetch done if there is no token
+        }//no fetch done if there is no token (no user logged in)
 
         fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/movies", {
             headers: {Authorization: `Bearer ${token}`}
@@ -67,6 +67,7 @@ export const MainView = () => {
                 onClick={() => {
                     setUser(null);
                     setToken(null);
+                    localStorage.clear();
                 }}
             >
                 Logout
