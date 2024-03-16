@@ -27258,13 +27258,7 @@ const MainView = ()=>{
             columnNumber: 17
         }, undefined) : selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
             md: 8,
-            style: {
-                border: "1px solid black"
-            },
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-                style: {
-                    border: "1px solid green"
-                },
                 movieData: selectedMovie,
                 onBackClick: ()=>setSelectedMovie(null)
             }, void 0, false, {
@@ -27280,7 +27274,7 @@ const MainView = ()=>{
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 67,
+            lineNumber: 66,
             columnNumber: 17
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27294,7 +27288,7 @@ const MainView = ()=>{
                         children: "Logout"
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 71,
+                        lineNumber: 70,
                         columnNumber: 25
                     }, undefined),
                     movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -27304,14 +27298,14 @@ const MainView = ()=>{
                             }
                         }, movie.id, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 81,
+                            lineNumber: 80,
                             columnNumber: 25
                         }, undefined)),
                     ";"
                 ]
             }, void 0, true, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 70,
+                lineNumber: 69,
                 columnNumber: 21
             }, undefined)
         }, void 0, false)
