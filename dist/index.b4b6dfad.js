@@ -27373,7 +27373,7 @@ const MovieCard = ({ movieData, onMovieClick })=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                         onClick: ()=>onMovieClick(movieData),
                         className: "details-button",
-                        variant: "link",
+                        variant: "primary",
                         children: "More Details"
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
