@@ -4,6 +4,7 @@ import {MovieView} from "../movie-view/movie-view"; //component to display all d
 import {LoginView} from "../login-view/login-view"; //component to display login form
 import {SignupView} from "../signup-view/signup-view"; //component to display signup form
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 
 //export MainView component to make it avl for use in other components, modules
@@ -55,10 +56,12 @@ export const MainView = () => {
                     <SignupView />
                 </>
             ) : selectedMovie ? (
-                    <MovieView
-                    movieData={selectedMovie}
-                    onBackClick={() => setSelectedMovie(null)}
-                    />
+                    <Col md={8}>
+                        <MovieView
+                        movieData={selectedMovie}
+                        onBackClick={() => setSelectedMovie(null)}
+                        />
+                    </Col>
             ) : movies.length === 0 ? (
                 <div>The list is empty!</div>
             ) : (
