@@ -66,26 +66,25 @@ export const MainView = () => {
                 <div>The list is empty!</div>
             ) : (
                 <>
-                    <div>
-                        <button
-                            onClick={() => {
-                                setUser(null);
-                                setToken(null);
-                                localStorage.clear();
-                            }}
-                        >
-                        Logout
-                        </button>
-                        {movies.map((movie) => (
-                        <MovieCard
-                            key={movie.id}
-                            movieData={movie}//pass movie object from each map iteration to MovieCard component in the movieData prop
-                            onMovieClick={(newSelectedMovie) => {
-                                setSelectedMovie(newSelectedMovie);
-                            }}
-                        />
-                        ))};
-                    </div>
+                    <button
+                        onClick={() => {
+                            setUser(null);
+                            setToken(null);
+                            localStorage.clear();
+                        }}
+                    >
+                    Logout
+                    </button>
+                    {movies.map((movie) => (
+                        <Col key={movie.id} md={3}>
+                            <MovieCard
+                                movieData={movie}//pass movie object from each map iteration to MovieCard component in the movieData prop
+                                onMovieClick={(newSelectedMovie) => {
+                                    setSelectedMovie(newSelectedMovie);
+                                }}
+                            />
+                        </Col>
+                    ))};
                 </>
             )}
         </Row>
