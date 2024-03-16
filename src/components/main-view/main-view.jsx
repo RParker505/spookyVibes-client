@@ -3,6 +3,7 @@ import {MovieCard} from "../movie-card/movie-card"; //component to display singl
 import {MovieView} from "../movie-view/movie-view"; //component to display all details for a movie
 import {LoginView} from "../login-view/login-view"; //component to display login form
 import {SignupView} from "../signup-view/signup-view"; //component to display signup form
+import Row from "react-bootstrap/Row";
 
 
 //export MainView component to make it avl for use in other components, modules
@@ -39,56 +40,51 @@ export const MainView = () => {
             });
     }, [token]);//token as dependency array will fetch every time token changes (i.e. after a user logs in)
 
-    if (!user) {
-        return (
-            <>
-            <LoginView
-                onLoggedIn={(user, token) => {
-                    setUser(user);
-                    setToken(token);
-                }} //store token and user as state variables, pass onLoggedIn prop to LoginView
-            />
-            or
-            <SignupView />
-            </>
-        );
-    }
-
-    if (selectedMovie) {
-        return (
-            <MovieView
-                movieData={selectedMovie}
-                onBackClick={() => setSelectedMovie(null)}
-            />
-        );
-    }
-
-    if (movies.length === 0) {
-        return <div>The list is empty!</div>;
-    } else {
-        return (
-           <div>
-            <button
-                onClick={() => {
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
-                }}
-            >
-                Logout
-            </button>
-            {movies.map((movie) => {
-                return (
-                    <MovieCard
-                        key={movie.id}
-                        movieData={movie}//pass movie object from each map iteration to MovieCard component in the movieData prop
-                        onMovieClick={(newSelectedMovie) => {
-                            setSelectedMovie(newSelectedMovie);
-                        }}
+    //one return statement in one row. Nested elements are conditionally rendered using ternary operator ?:
+    return (
+        <Row>
+            {!user ? (
+                <>
+                    <LoginView
+                        onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                        }} //store token and user as state variables, pass onLoggedIn prop to LoginView
                     />
-                );
-            })}
-           </div> 
-        );
-    }
-}
+                    or
+                    <SignupView />
+                </>
+            ) : selectedMovie ? (
+                    <MovieView
+                    movieData={selectedMovie}
+                    onBackClick={() => setSelectedMovie(null)}
+                    />
+            ) : movies.length === 0 ? (
+                <div>The list is empty!</div>
+            ) : (
+                <>
+                    <div>
+                        <button
+                            onClick={() => {
+                                setUser(null);
+                                setToken(null);
+                                localStorage.clear();
+                            }}
+                        >
+                        Logout
+                        </button>
+                        {movies.map((movie) => (
+                        <MovieCard
+                            key={movie.id}
+                            movieData={movie}//pass movie object from each map iteration to MovieCard component in the movieData prop
+                            onMovieClick={(newSelectedMovie) => {
+                                setSelectedMovie(newSelectedMovie);
+                            }}
+                        />
+                        ))};
+                    </div>
+                </>
+            )}
+        </Row>
+    );
+};
