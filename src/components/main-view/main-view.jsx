@@ -42,7 +42,7 @@ export const MainView = () => {
 
     //one return statement in one row. Nested elements are conditionally rendered using ternary operator ?:
     return (
-        <Row>
+        <Row className="justify-content-md-center">
             {!user ? (
                 <>
                     <LoginView

@@ -27229,6 +27229,7 @@ const MainView = ()=>{
     ]); //token as dependency array will fetch every time token changes (i.e. after a user logs in)
     //one return statement in one row. Nested elements are conditionally rendered using ternary operator ?:
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+        className: "justify-content-md-center",
         children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
