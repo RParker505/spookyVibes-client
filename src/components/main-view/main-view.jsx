@@ -56,7 +56,7 @@ export const MainView = () => {
                     <SignupView />
                 </Col>
             ) : selectedMovie ? (
-                <Col md={8}>
+                <Col sm={12} md={8}>
                     <MovieView
                     movieData={selectedMovie}
                     onBackClick={() => setSelectedMovie(null)}
@@ -76,7 +76,7 @@ export const MainView = () => {
                     Logout
                     </button>
                     {movies.map((movie) => (
-                        <Col className="mb-5" key={movie.id} sm={6} md={4} lg={3}>
+                        <Col className="mb-5" key={movie.id} xs={12} sm={6} md={4} lg={3}>
                             <MovieCard
                                 movieData={movie}//pass movie object from each map iteration to MovieCard component in the movieData prop
                                 onMovieClick={(newSelectedMovie) => {

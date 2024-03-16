@@ -27254,6 +27254,7 @@ const MainView = ()=>{
             lineNumber: 48,
             columnNumber: 17
         }, undefined) : selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+            sm: 12,
             md: 8,
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
                 movieData: selectedMovie,
@@ -27289,6 +27290,7 @@ const MainView = ()=>{
                 }, undefined),
                 movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                         className: "mb-5",
+                        xs: 12,
                         sm: 6,
                         md: 4,
                         lg: 3,
