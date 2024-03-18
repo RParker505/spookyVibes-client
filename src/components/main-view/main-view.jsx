@@ -3,6 +3,8 @@ import {MovieCard} from "../movie-card/movie-card"; //component to display singl
 import {MovieView} from "../movie-view/movie-view"; //component to display all details for a movie
 import {LoginView} from "../login-view/login-view"; //component to display login form
 import {SignupView} from "../signup-view/signup-view"; //component to display signup form
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 
 //export MainView component to make it avl for use in other components, modules
@@ -39,56 +41,52 @@ export const MainView = () => {
             });
     }, [token]);//token as dependency array will fetch every time token changes (i.e. after a user logs in)
 
-    if (!user) {
-        return (
-            <>
-            <LoginView
-                onLoggedIn={(user, token) => {
-                    setUser(user);
-                    setToken(token);
-                }} //store token and user as state variables, pass onLoggedIn prop to LoginView
-            />
-            or
-            <SignupView />
-            </>
-        );
-    }
-
-    if (selectedMovie) {
-        return (
-            <MovieView
-                movieData={selectedMovie}
-                onBackClick={() => setSelectedMovie(null)}
-            />
-        );
-    }
-
-    if (movies.length === 0) {
-        return <div>The list is empty!</div>;
-    } else {
-        return (
-           <div>
-            <button
-                onClick={() => {
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
-                }}
-            >
-                Logout
-            </button>
-            {movies.map((movie) => {
-                return (
-                    <MovieCard
-                        key={movie.id}
-                        movieData={movie}//pass movie object from each map iteration to MovieCard component in the movieData prop
-                        onMovieClick={(newSelectedMovie) => {
-                            setSelectedMovie(newSelectedMovie);
-                        }}
+    //one return statement in one row. Nested elements are conditionally rendered using ternary operator ?:
+    return (
+        <Row className="justify-content-md-center">
+            {!user ? (
+                <Col md={5}>
+                    <LoginView
+                        onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                        }} //store token and user as state variables, pass onLoggedIn prop to LoginView
                     />
-                );
-            })}
-           </div> 
-        );
-    }
-}
+                    or
+                    <SignupView />
+                </Col>
+            ) : selectedMovie ? (
+                <Col sm={12} md={8}>
+                    <MovieView
+                    movieData={selectedMovie}
+                    onBackClick={() => setSelectedMovie(null)}
+                    />
+                </Col>
+            ) : movies.length === 0 ? (
+                <div>The list is empty!</div>
+            ) : (
+                <>
+                    <button
+                        onClick={() => {
+                            setUser(null);
+                            setToken(null);
+                            localStorage.clear();
+                        }}
+                    >
+                    Logout
+                    </button>
+                    {movies.map((movie) => (
+                        <Col className="mb-5" key={movie.id} xs={12} sm={6} md={4} lg={3}>
+                            <MovieCard
+                                movieData={movie}//pass movie object from each map iteration to MovieCard component in the movieData prop
+                                onMovieClick={(newSelectedMovie) => {
+                                    setSelectedMovie(newSelectedMovie);
+                                }}
+                            />
+                        </Col>
+                    ))}
+                </>
+            )}
+        </Row>
+    );
+};

@@ -1,3 +1,19 @@
+.details-button {
+  color: #f5f5f5;
+  background-color: #5f9ea0;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
+.back-button {
+  color: #f5f5f5;
+  background-color: #5f9ea0;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -13191,4 +13207,4 @@ textarea.form-control-lg {
   }
 }
 
-/*# sourceMappingURL=index.ce1d6491.css.map */
+/*# sourceMappingURL=index.e3f97e84.css.map */
