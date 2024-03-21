@@ -3,6 +3,7 @@ import {MovieCard} from "../movie-card/movie-card"; //component to display singl
 import {MovieView} from "../movie-view/movie-view"; //component to display all details for a movie
 import {LoginView} from "../login-view/login-view"; //component to display login form
 import {SignupView} from "../signup-view/signup-view"; //component to display signup form
+import {NavigationBar} from "../navigation-bar/navigation-bar"; //component to display navbar
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
@@ -44,6 +45,14 @@ export const MainView = () => {
     //one return statement in one row. Nested elements are conditionally rendered using ternary operator ?:
     return (
         <BrowserRouter>
+            <NavigationBar
+                user={user}
+                onLoggedOut={() => {
+                    setUser(null)
+                    setToken(null);
+                    localStorage.clear();
+                }}
+            />
             <Row className="justify-content-md-center">
                 <Routes>
                     <Route
