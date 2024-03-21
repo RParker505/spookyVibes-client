@@ -27458,7 +27458,7 @@ const MovieCard = ({ movieData })=>{
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: `/movies/${encodeURIComponent(moviedData.id)}`,
+                        to: `/movies/${encodeURIComponent(movieData.id)}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                             className: "details-button",
                             variant: "primary",
