@@ -4,12 +4,12 @@ import "./user-details.scss";
 
 export const UserDetails = ({user, email, birthday}) => {
     return (
-        <Card border="info" className="ud-card my-5">
-            <Card.Body>
+        <Card className="my-5 border-5 border-dark">
+            <Card.Body className="ud-card text-center">
                 <Card.Title>My Details</Card.Title>
-                <Card.Text>Username: {user}</Card.Text>
-                <Card.Text>Email: {email}</Card.Text>
-                <Card.Text>Birthday: {birthday}</Card.Text>
+                <Card.Text><b>Username:</b> {user}</Card.Text>
+                <Card.Text><b>Email:</b> {email}</Card.Text>
+                <Card.Text><b>Birthday:</b> {birthday}</Card.Text>
             </Card.Body>
         </Card>
     );

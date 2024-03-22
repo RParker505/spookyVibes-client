@@ -41996,9 +41996,9 @@ var _cardDefault = parcelHelpers.interopDefault(_card);
 var _userDetailsScss = require("./user-details.scss");
 const UserDetails = ({ user, email, birthday })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
-        border: "info",
-        className: "ud-card my-5",
+        className: "my-5 border-5 border-dark",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
+            className: "ud-card text-center",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
                     children: "My Details"
@@ -42009,7 +42009,14 @@ const UserDetails = ({ user, email, birthday })=>{
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
                     children: [
-                        "Username: ",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Username:"
+                        }, void 0, false, {
+                            fileName: "src/components/profile-view/user-details.jsx",
+                            lineNumber: 10,
+                            columnNumber: 28
+                        }, undefined),
+                        " ",
                         user
                     ]
                 }, void 0, true, {
@@ -42019,7 +42026,14 @@ const UserDetails = ({ user, email, birthday })=>{
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
                     children: [
-                        "Email: ",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Email:"
+                        }, void 0, false, {
+                            fileName: "src/components/profile-view/user-details.jsx",
+                            lineNumber: 11,
+                            columnNumber: 28
+                        }, undefined),
+                        " ",
                         email
                     ]
                 }, void 0, true, {
@@ -42029,7 +42043,14 @@ const UserDetails = ({ user, email, birthday })=>{
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
                     children: [
-                        "Birthday: ",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Birthday:"
+                        }, void 0, false, {
+                            fileName: "src/components/profile-view/user-details.jsx",
+                            lineNumber: 12,
+                            columnNumber: 28
+                        }, undefined),
+                        " ",
                         birthday
                     ]
                 }, void 0, true, {

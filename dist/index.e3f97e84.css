@@ -15,7 +15,8 @@
 }
 
 .ud-card {
-  border: 15px;
+  background-color: #d8bfd8;
+  font-weight: 600;
 }
 
 :root, [data-bs-theme="light"] {
