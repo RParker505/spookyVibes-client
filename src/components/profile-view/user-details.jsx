@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import "./user-details.scss";
 
 export const UserDetails = ({user, email, birthday}) => {
     return (
