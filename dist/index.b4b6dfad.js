@@ -41991,7 +41991,7 @@ parcelHelpers.export(exports, "UserDetails", ()=>UserDetails);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-const UserDetails = ()=>{
+const UserDetails = ({ user, email, birthday })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -42002,22 +42002,31 @@ const UserDetails = ()=>{
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Username:"
-            }, void 0, false, {
+                children: [
+                    "Username: ",
+                    user
+                ]
+            }, void 0, true, {
                 fileName: "src/components/profile-view/user-details.jsx",
                 lineNumber: 7,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Email:"
-            }, void 0, false, {
+                children: [
+                    "Email: ",
+                    email
+                ]
+            }, void 0, true, {
                 fileName: "src/components/profile-view/user-details.jsx",
                 lineNumber: 8,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Birthday:"
-            }, void 0, false, {
+                children: [
+                    "Birthday: ",
+                    birthday
+                ]
+            }, void 0, true, {
                 fileName: "src/components/profile-view/user-details.jsx",
                 lineNumber: 9,
                 columnNumber: 9
