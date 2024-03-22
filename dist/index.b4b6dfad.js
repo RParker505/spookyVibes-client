@@ -41995,6 +41995,11 @@ var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 var _userDetailsScss = require("./user-details.scss");
 const UserDetails = ({ user, email, birthday })=>{
+    const formatDate = (dateString)=>{
+        const date = new Date(dateString);
+        const formattedDate = `${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getDate().toString().padStart(2, "0")}/${date.getFullYear()}`;
+        return formattedDate;
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
         className: "my-5 border-5 border-dark",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
@@ -42004,7 +42009,7 @@ const UserDetails = ({ user, email, birthday })=>{
                     children: "My Details"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/user-details.jsx",
-                    lineNumber: 9,
+                    lineNumber: 15,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -42013,7 +42018,7 @@ const UserDetails = ({ user, email, birthday })=>{
                             children: "Username:"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/user-details.jsx",
-                            lineNumber: 10,
+                            lineNumber: 16,
                             columnNumber: 28
                         }, undefined),
                         " ",
@@ -42021,7 +42026,7 @@ const UserDetails = ({ user, email, birthday })=>{
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/user-details.jsx",
-                    lineNumber: 10,
+                    lineNumber: 16,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -42030,7 +42035,7 @@ const UserDetails = ({ user, email, birthday })=>{
                             children: "Email:"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/user-details.jsx",
-                            lineNumber: 11,
+                            lineNumber: 17,
                             columnNumber: 28
                         }, undefined),
                         " ",
@@ -42038,7 +42043,7 @@ const UserDetails = ({ user, email, birthday })=>{
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/user-details.jsx",
-                    lineNumber: 11,
+                    lineNumber: 17,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -42047,26 +42052,26 @@ const UserDetails = ({ user, email, birthday })=>{
                             children: "Birthday:"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/user-details.jsx",
-                            lineNumber: 12,
+                            lineNumber: 18,
                             columnNumber: 28
                         }, undefined),
                         " ",
-                        birthday
+                        formatDate(birthday)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/user-details.jsx",
-                    lineNumber: 12,
+                    lineNumber: 18,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/profile-view/user-details.jsx",
-            lineNumber: 8,
+            lineNumber: 14,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/profile-view/user-details.jsx",
-        lineNumber: 7,
+        lineNumber: 13,
         columnNumber: 9
     }, undefined);
 };
