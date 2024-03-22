@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 
 export const UserDetails = ({user, email, birthday}) => {
     return (
-        <Card border="info" className="my-5">
+        <Card border="info" className="ud-card my-5">
             <Card.Body>
                 <Card.Title>My Details</Card.Title>
                 <Card.Text>Username: {user}</Card.Text>

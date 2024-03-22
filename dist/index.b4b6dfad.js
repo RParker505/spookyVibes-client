@@ -41996,7 +41996,7 @@ var _cardDefault = parcelHelpers.interopDefault(_card);
 const UserDetails = ({ user, email, birthday })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
         border: "info",
-        className: "my-5",
+        className: "ud-card my-5",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
