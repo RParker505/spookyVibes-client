@@ -1,12 +1,15 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 
 export const UserDetails = ({user, email, birthday}) => {
     return (
-        <>
-        <h2>Hey Rocky!</h2>
-        <p>Username: {user}</p>
-        <p>Email: {email}</p>
-        <p>Birthday: {birthday}</p>
-        </>
+        <Card>
+            <Card.Body>
+                <Card.Title>My Details</Card.Title>
+                <Card.Text>Username: {user}</Card.Text>
+                <Card.Text>Email: {email}</Card.Text>
+                <Card.Text>Birthday: {birthday}</Card.Text>
+            </Card.Body>
+        </Card>
     );
 };
