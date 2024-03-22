@@ -127,14 +127,11 @@ export const MainView = () => {
                                 {!user ? (
                                     <Navigate to="/login" replace />
                                 ) : (
-                                    <>
                                     <ProfileView />
-                                    </>
                                 )}
                             </>
                         }
-                    >
-                    </Route>
+                    />
                 </Routes>
             </Row>
         </BrowserRouter>
