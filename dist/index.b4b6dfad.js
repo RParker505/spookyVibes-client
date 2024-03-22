@@ -41958,8 +41958,12 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _userDetails = require("./user-details");
-const ProfileView = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userDetails.UserDetails), {}, void 0, false, {
+const ProfileView = ({ user })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userDetails.UserDetails), {
+        user: user.Username,
+        email: user.Email,
+        birthday: user.Birthday
+    }, void 0, false, {
         fileName: "src/components/profile-view/profile-view.jsx",
         lineNumber: 6,
         columnNumber: 9

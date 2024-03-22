@@ -1,8 +1,8 @@
 import React from "react";
 import {UserDetails} from "./user-details";
 
-export const ProfileView = () => {
+export const ProfileView = ({user}) => {
     return (
-        <UserDetails />
+        <UserDetails user={user.Username} email={user.Email} birthday={user.Birthday} />
     );
 };
