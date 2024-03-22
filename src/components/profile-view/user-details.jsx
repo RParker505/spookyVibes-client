@@ -1,6 +1,6 @@
 import React from "react";
 
-export const UserDetails =() => {
+export const UserDetails = () => {
     return (
         <>
         <h2>Hey Rocky!</h2>
