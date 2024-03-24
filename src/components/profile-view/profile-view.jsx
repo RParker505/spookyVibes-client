@@ -30,12 +30,9 @@ export const ProfileView = ({user, token}) => {
             }
         }).then(async (response) => {
             if (response.ok) {
-                const updatedUser = await response.json();
-                localStorage.setItem("user", JSON.stringify(updatedUser));
-                setUser(updatedUser);
-                alert("Account updated successfully!");
-                window.location;
-                navigate("/profile");
+                alert("Update successful");
+                window.location.reload();
+                return response.json();
             } else {
                 alert("Update failed");
             }
