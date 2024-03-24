@@ -3,7 +3,9 @@ import {useState} from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export const UserUpdate = () => {
+export const UserUpdate = ({token}) => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -19,11 +21,12 @@ export const UserUpdate = () => {
             Birthday: birthday
         };
 
-        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${username}", {
+        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.username}", {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             }
         }).then((response) => {
             if (response.ok) {
@@ -44,6 +47,7 @@ export const UserUpdate = () => {
                     <Form.Control
                         type="text"
                         value={username}
+                        placeholder="{storedUser.username}"
                         onChange={(e) => setUsername(e.target.value)}
                         required
                         minLength="3"
