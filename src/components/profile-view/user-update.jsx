@@ -2,13 +2,12 @@ import React from "react";
 
 export const UserUpdate = () => {
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form>
         <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
             <Form.Control
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
                 required
                 minLength="3"
             />
@@ -22,7 +21,6 @@ export const UserUpdate = () => {
             <Form.Control
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 required
             />
         </Form.Group>
@@ -32,7 +30,6 @@ export const UserUpdate = () => {
             <Form.Control
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 required
             />
         </Form.Group>
@@ -42,7 +39,6 @@ export const UserUpdate = () => {
             <Form.Control
                 type="date"
                 value={birthday}
-                onChange={(e) => setBirthday(e.target.value)}
                 required
             />                  
         </Form.Group>
