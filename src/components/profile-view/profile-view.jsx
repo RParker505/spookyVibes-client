@@ -21,7 +21,7 @@ export const ProfileView = ({user, token}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.username}", {
+        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${user.Username}", {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
