@@ -41988,6 +41988,7 @@ const ProfileView = ({ user, token })=>{
             if (response.ok) {
                 alert("Update successful");
                 window.location.reload();
+                return response.json();
             } else alert("Update failed");
         });
     };
@@ -42015,7 +42016,7 @@ const ProfileView = ({ user, token })=>{
                 birthday: user.Birthday
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 60,
+                lineNumber: 61,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userUpdate.UserUpdate), {
@@ -42024,7 +42025,7 @@ const ProfileView = ({ user, token })=>{
                 handleUpdate: handleUpdate
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 65,
+                lineNumber: 66,
                 columnNumber: 13
             }, undefined)
         ]

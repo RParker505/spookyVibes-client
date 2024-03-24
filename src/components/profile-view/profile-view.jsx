@@ -32,6 +32,7 @@ export const ProfileView = ({user, token}) => {
             if (response.ok) {
                 alert("Update successful");
                 window.location.reload();
+                return response.json();
             } else {
                 alert("Update failed");
             }
