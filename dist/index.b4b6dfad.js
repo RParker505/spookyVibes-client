@@ -42162,7 +42162,7 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
-const UserUpdate = ({ data, handleSubmit })=>{
+const UserUpdate = ({ data, handleSubmit, handleUpdate })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -42189,7 +42189,7 @@ const UserUpdate = ({ data, handleSubmit })=>{
                                 type: "text",
                                 value: data.username,
                                 placeholder: "{storedUser.username}",
-                                onChange: (e)=>setUsername(e.target.value),
+                                onChange: (e)=>handleUpdate(e),
                                 required: true,
                                 minLength: "3"
                             }, void 0, false, {
@@ -42224,7 +42224,7 @@ const UserUpdate = ({ data, handleSubmit })=>{
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                 type: "password",
                                 value: data.password,
-                                onChange: (e)=>setPassword(e.target.value),
+                                onChange: (e)=>handleUpdate(e),
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
@@ -42250,7 +42250,7 @@ const UserUpdate = ({ data, handleSubmit })=>{
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                 type: "email",
                                 value: data.email,
-                                onChange: (e)=>setEmail(e.target.value),
+                                onChange: (e)=>handleUpdate(e),
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
@@ -42276,7 +42276,7 @@ const UserUpdate = ({ data, handleSubmit })=>{
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                 type: "date",
                                 value: data.birthday,
-                                onChange: (e)=>setBirthday(e.target.value),
+                                onChange: (e)=>handleUpdate(e),
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
@@ -42296,15 +42296,6 @@ const UserUpdate = ({ data, handleSubmit })=>{
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
                         lineNumber: 55,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                        variant: "secondary",
-                        type: "submit",
-                        children: "Delete Account"
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 56,
                         columnNumber: 17
                     }, undefined)
                 ]

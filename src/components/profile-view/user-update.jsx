@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export const UserUpdate = ({data, handleSubmit}) => {
+export const UserUpdate = ({data, handleSubmit, handleUpdate}) => {
     return (
         <>
             <h3>Need to update your details?</h3>
@@ -13,7 +13,7 @@ export const UserUpdate = ({data, handleSubmit}) => {
                         type="text"
                         value={data.username}
                         placeholder="{storedUser.username}"
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => handleUpdate(e)}
                         required
                         minLength="3"
                     />
@@ -27,7 +27,7 @@ export const UserUpdate = ({data, handleSubmit}) => {
                     <Form.Control
                         type="password"
                         value={data.password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => handleUpdate(e)}
                         required
                     />
                 </Form.Group>
@@ -37,7 +37,7 @@ export const UserUpdate = ({data, handleSubmit}) => {
                     <Form.Control
                         type="email"
                         value={data.email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => handleUpdate(e)}
                         required
                     />
                 </Form.Group>
@@ -47,13 +47,12 @@ export const UserUpdate = ({data, handleSubmit}) => {
                     <Form.Control
                         type="date"
                         value={data.birthday}
-                        onChange={(e) => setBirthday(e.target.value)}
+                        onChange={(e) => handleUpdate(e)}
                         required
                     />                  
                 </Form.Group>
 
                 <Button variant="primary" type="submit">Update Details</Button>
-                <Button variant="secondary" type="submit">Delete Account</Button>
             </Form>
         </>
     );
