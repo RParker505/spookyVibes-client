@@ -6,10 +6,10 @@ import {UserUpdate} from "./user-update";
 export const ProfileView = ({user, token}) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    const [username, setUsername] = useState("");
+    const [username, setUsername] = useState(user.Username);
     const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [birthday, setBirthday] = useState("");
+    const [email, setEmail] = useState(user.Email);
+    const [birthday, setBirthday] = useState(user.Birthday);
 
     const data = {
         Username: username,
@@ -38,10 +38,35 @@ export const ProfileView = ({user, token}) => {
         });
     };
 
+    const handleUpdate = (e) => {
+        switch(e.target.type) {
+          case "text":
+            setUsername(e.target.value);
+            break;
+          case "email":
+            setEmail(e.target.value);
+            break;
+          case "password":
+            setPassword(e.target.value);
+            break;
+          case "date":
+            setBirthday(e.target.value);
+            default:
+        };
+    };
+
     return (
         <>
-            <UserDetails user={user.Username} email={user.Email} birthday={user.Birthday} />
-            <UserUpdate data={data} handleSubmit={handleSubmit} />
+            <UserDetails 
+                user={user.Username}
+                email={user.Email}
+                birthday={user.Birthday}
+            />
+            <UserUpdate
+                data={data}
+                handleSubmit={handleSubmit}
+                handleUpdate={handleUpdate}
+            />
         </>
     );
 };
