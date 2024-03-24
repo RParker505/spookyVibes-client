@@ -9,10 +9,36 @@ export const UserUpdate = () => {
     const [email, setEmail] = useState("");
     const [birthday, setBirthday] = useState("");
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const data = {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        };
+
+        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${username}", {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((response) => {
+            if (response.ok) {
+                alert("Update successful");
+                window.location.reload();
+            } else {
+                alert("Update failed");
+            }
+        });
+    };
+
     return (
         <>
             <h3>Need to update your details?</h3>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
