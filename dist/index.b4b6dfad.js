@@ -27397,8 +27397,7 @@ const MainView = ()=>{
                                     md: 6,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
                                         user: user,
-                                        token: token,
-                                        onSubmit: (user)=>setUser(user)
+                                        token: token
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
                                         lineNumber: 131,
