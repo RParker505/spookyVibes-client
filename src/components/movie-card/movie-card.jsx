@@ -7,7 +7,7 @@ import "./movie-card.scss";
 export const MovieCard = ({movieData}) => {
     return (
         <Card className="h-100">
-            <Card.Img variant="top" src={movieData.image} rounded />
+            <Card.Img variant="top" src={movieData.image} rounded="true" />
             <Card.Body>
                 <Card.Title>{movieData.title}</Card.Title>
                 <Card.Text>{movieData.description}</Card.Text>

@@ -27468,7 +27468,7 @@ const MovieCard = ({ movieData })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
                 variant: "top",
                 src: movieData.image,
-                rounded: true
+                rounded: "true"
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 10,
