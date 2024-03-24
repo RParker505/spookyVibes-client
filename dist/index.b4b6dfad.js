@@ -42145,43 +42145,14 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
-var _s = $RefreshSig$();
-const UserUpdate = ({ token })=>{
-    _s();
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const [username, setUsername] = (0, _react.useState)("");
-    const [password, setPassword] = (0, _react.useState)("");
-    const [email, setEmail] = (0, _react.useState)("");
-    const [birthday, setBirthday] = (0, _react.useState)("");
-    const handleSubmit = (event)=>{
-        event.preventDefault();
-        const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        };
-        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.username}", {
-            method: "PUT",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-        }).then((response)=>{
-            if (response.ok) {
-                alert("Update successful");
-                window.location.reload();
-            } else alert("Update failed");
-        });
-    };
+const UserUpdate = ({ data, handleSubmit })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "Need to update your details?"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 43,
+                lineNumber: 8,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
@@ -42194,19 +42165,19 @@ const UserUpdate = ({ token })=>{
                                 children: "Username:"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 46,
+                                lineNumber: 11,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                 type: "text",
-                                value: username,
+                                value: data.username,
                                 placeholder: "{storedUser.username}",
                                 onChange: (e)=>setUsername(e.target.value),
                                 required: true,
                                 minLength: "3"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 47,
+                                lineNumber: 12,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Text, {
@@ -42214,13 +42185,13 @@ const UserUpdate = ({ token })=>{
                                 children: "Must only contain numbers and letters, no special characters allowed."
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 55,
+                                lineNumber: 20,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 45,
+                        lineNumber: 10,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -42230,23 +42201,23 @@ const UserUpdate = ({ token })=>{
                                 children: "Password:"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 61,
+                                lineNumber: 26,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                 type: "password",
-                                value: password,
+                                value: data.password,
                                 onChange: (e)=>setPassword(e.target.value),
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 62,
+                                lineNumber: 27,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 60,
+                        lineNumber: 25,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -42256,23 +42227,23 @@ const UserUpdate = ({ token })=>{
                                 children: "Email:"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 71,
+                                lineNumber: 36,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                 type: "email",
-                                value: email,
+                                value: data.email,
                                 onChange: (e)=>setEmail(e.target.value),
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 72,
+                                lineNumber: 37,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 70,
+                        lineNumber: 35,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -42282,23 +42253,23 @@ const UserUpdate = ({ token })=>{
                                 children: "Birthday:"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 81,
+                                lineNumber: 46,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                 type: "date",
-                                value: birthday,
+                                value: data.birthday,
                                 onChange: (e)=>setBirthday(e.target.value),
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/user-update.jsx",
-                                lineNumber: 82,
+                                lineNumber: 47,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 80,
+                        lineNumber: 45,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -42307,7 +42278,7 @@ const UserUpdate = ({ token })=>{
                         children: "Update Details"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 90,
+                        lineNumber: 55,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -42316,19 +42287,18 @@ const UserUpdate = ({ token })=>{
                         children: "Delete Account"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-update.jsx",
-                        lineNumber: 91,
+                        lineNumber: 56,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-update.jsx",
-                lineNumber: 44,
+                lineNumber: 9,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(UserUpdate, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
 _c = UserUpdate;
 var _c;
 $RefreshReg$(_c, "UserUpdate");

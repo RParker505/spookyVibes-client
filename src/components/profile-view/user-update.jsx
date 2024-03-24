@@ -1,43 +1,8 @@
 import React from "react";
-import {useState} from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export const UserUpdate = ({token}) => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [birthday, setBirthday] = useState("");
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        };
-
-        fetch("https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.username}", {
-            method: "PUT",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-        }).then((response) => {
-            if (response.ok) {
-                alert("Update successful");
-                window.location.reload();
-            } else {
-                alert("Update failed");
-            }
-        });
-    };
-
+export const UserUpdate = ({data, handleSubmit}) => {
     return (
         <>
             <h3>Need to update your details?</h3>
@@ -46,7 +11,7 @@ export const UserUpdate = ({token}) => {
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                         type="text"
-                        value={username}
+                        value={data.username}
                         placeholder="{storedUser.username}"
                         onChange={(e) => setUsername(e.target.value)}
                         required
@@ -61,7 +26,7 @@ export const UserUpdate = ({token}) => {
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                         type="password"
-                        value={password}
+                        value={data.password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
@@ -71,7 +36,7 @@ export const UserUpdate = ({token}) => {
                     <Form.Label>Email:</Form.Label>
                     <Form.Control
                         type="email"
-                        value={email}
+                        value={data.email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
@@ -81,7 +46,7 @@ export const UserUpdate = ({token}) => {
                     <Form.Label>Birthday:</Form.Label>
                     <Form.Control
                         type="date"
-                        value={birthday}
+                        value={data.birthday}
                         onChange={(e) => setBirthday(e.target.value)}
                         required
                     />                  
