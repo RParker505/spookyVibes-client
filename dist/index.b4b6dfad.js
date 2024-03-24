@@ -41982,13 +41982,16 @@ const ProfileView = ({ user, token })=>{
             body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                Authorization: `Bearer ${token}`
             }
-        }).then((response)=>{
+        }).then(async (response)=>{
             if (response.ok) {
-                alert("Update successful");
-                window.location.reload();
-                return response.json();
+                const updatedUser = await response.json();
+                localStorage.setItem("user", JSON.stringify(updatedUser));
+                setUser(updatedUser);
+                alert("Account updated successfully!");
+                window.location;
+                navigate("/profile");
             } else alert("Update failed");
         });
     };
@@ -42016,7 +42019,7 @@ const ProfileView = ({ user, token })=>{
                 birthday: user.Birthday
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 61,
+                lineNumber: 64,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userUpdate.UserUpdate), {
@@ -42025,7 +42028,7 @@ const ProfileView = ({ user, token })=>{
                 handleUpdate: handleUpdate
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 66,
+                lineNumber: 69,
                 columnNumber: 13
             }, undefined)
         ]

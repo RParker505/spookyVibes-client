@@ -26,13 +26,16 @@ export const ProfileView = ({user, token}) => {
             body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                Authorization: `Bearer ${token}`
             }
-        }).then((response) => {
+        }).then(async (response) => {
             if (response.ok) {
-                alert("Update successful");
-                window.location.reload();
-                return response.json();
+                const updatedUser = await response.json();
+                localStorage.setItem("user", JSON.stringify(updatedUser));
+                setUser(updatedUser);
+                alert("Account updated successfully!");
+                window.location;
+                navigate("/profile");
             } else {
                 alert("Update failed");
             }
