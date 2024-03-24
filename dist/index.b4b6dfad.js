@@ -41984,7 +41984,7 @@ const ProfileView = ({ user, token })=>{
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        }).then(async (response)=>{
+        }).then((response)=>{
             if (response.ok) {
                 alert("Update successful");
                 window.location.reload();
