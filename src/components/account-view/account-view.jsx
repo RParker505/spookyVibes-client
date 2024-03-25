@@ -24,7 +24,7 @@ export const AccountView = ({ user, token, setUser }) => {
   const handleUpdate = (event) => {
     event.preventDefault();
 
-    console.log("JSON data to be sent:", data);
+    console.log("JSON data to be sent:");
 
     fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.Username}`, {
       method: "PUT",
@@ -146,9 +146,9 @@ export const AccountView = ({ user, token, setUser }) => {
             />
           </Form.Group>
 
-        <Button className="mt-4 primaryButton w-100" variant="primary" type="submit" onClick={handleUpdate}>Update Information</Button>
+        <Button className="mt-4 primaryButton w-100" variant="primary" type="button" onClick={handleUpdate}>Update Information</Button>
           <p className="warning">-- DANGER ZONE --
-        <Button className="primaryButton deleteButton w-100" variant="danger" type="submit" onClick={handleDelete}>Delete Account</Button></p>
+        <Button className="primaryButton deleteButton w-100" variant="danger" type="button" onClick={handleDelete}>Delete Account</Button></p>
         </Form>
       </Row>
     </>
