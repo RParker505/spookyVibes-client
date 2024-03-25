@@ -25,11 +25,11 @@ export const MainView = () => {
         setToken(token);
       };
     
-      const handleOnLoggedOut = () => {
+    const handleOnLoggedOut = () => {
         setUser(null);
         setToken(null); 
         localStorage.clear();
-      };
+    };
 
     useEffect (() => {
         if (!token) {
