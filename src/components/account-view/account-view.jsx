@@ -15,7 +15,8 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
   const [birthday, setBirthday] = useState(user.Birthday);
   const [showModal, setShowModal] = useState(false);
 
-  const navigate = useNavigate();
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
   const formData = {
     Username: username,
