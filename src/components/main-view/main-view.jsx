@@ -20,12 +20,12 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser? storedUser: null); //if user is logged in, biz as usual; if not, display LoginView
     const [token, setToken] = useState(storedToken? storedToken: null);//on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
 
-    const handleOnLoggedIn = (user, token) => {
+    const onLoggedIn = (user, token) => {
         setUser(user);
         setToken(token);
       };
     
-    const handleOnLoggedOut = () => {
+    const onLoggedOut = () => {
         setUser(null);
         setToken(null); 
         localStorage.clear();
@@ -60,7 +60,7 @@ export const MainView = () => {
         <BrowserRouter>
             <NavigationBar
                 user={user}
-                onLoggedOut={handleOnLoggedOut}
+                onLoggedOut={onLoggedOut}
             />
             <Row className="justify-content-md-center">
                 <Routes>
@@ -86,7 +86,7 @@ export const MainView = () => {
                                     <Navigate to="/" />
                                 ) : (
                                     <Col md={5}>
-                                        <LoginView onLoggedIn={handleOnLoggedIn} />
+                                        <LoginView onLoggedIn={onLoggedIn} />
                                     </Col>
                                 )}
                             </>
