@@ -10,27 +10,29 @@ export const AccountView = ({ user, token, setUser }) => {
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
-  const [birthday, setBirthday] = useState(new Date(user.Birthday));
+  const [birthday, setBirthday] = useState(user.Birthday);
 
   const navigate = useNavigate();
 
+  const data = {
+    Username: username,
+    Password: password,
+    Email: email,
+    Birthday: birthday
+  };
+
   const handleUpdate = (event) => {
     event.preventDefault();
-    
-    const data = {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday
-    };
+
+    console.log("JSON data to be sent:", data);
 
     fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.Username}`, {
       method: "PUT",
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify(data)
+      }
     })
     .then(async (response) => {
       if (response.ok) {
@@ -145,7 +147,7 @@ export const AccountView = ({ user, token, setUser }) => {
             />
           </Form.Group>
 
-          <Button className="mt-4 primaryButton w-100" variant="primary" type="submit" onClick={handleUpdate}>Update Information</Button>
+        <Button className="mt-4 primaryButton w-100" variant="primary" type="submit" onClick={handleUpdate}>Update Information</Button>
           <p className="warning">-- DANGER ZONE --
         <Button className="primaryButton deleteButton w-100" variant="danger" type="submit" onClick={handleDelete}>Delete Account</Button></p>
         </Form>
