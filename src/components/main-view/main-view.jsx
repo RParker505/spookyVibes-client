@@ -5,6 +5,7 @@ import {LoginView} from "../login-view/login-view"; //component to display login
 import {SignupView} from "../signup-view/signup-view"; //component to display signup form
 import {NavigationBar} from "../navigation-bar/navigation-bar"; //component to display navbar
 import {ProfileView} from "../profile-view/profile-view"; //component to display user details
+import {AccountView} from "../account-view/account-view"; //test component for user details
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
@@ -131,6 +132,24 @@ export const MainView = () => {
                                         <ProfileView 
                                             user={user}
                                             token={token}
+                                        />
+                                    </Col>
+                                )}
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/account"
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to="/account" replace />
+                                ) : (
+                                    <Col md={6}>
+                                        <AccountView 
+                                            user={user}
+                                            token={token}
+                                            setuser={setUser}
                                         />
                                     </Col>
                                 )}
