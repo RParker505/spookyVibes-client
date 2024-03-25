@@ -132,6 +132,36 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
           </Form>
         </Col>
       </Row>
+
+      <Button
+        variant="primary"
+        className="button-primary"
+        onClick={handleShowModal}
+      >
+        Delete account
+      </Button>
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete account</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Confirm delete account?</Modal.Body>
+        <Modal.Footer>
+          <button
+            variant="primary"
+            className="button-primary"
+            onClick={handleDelete}
+          >
+            Yes
+          </button>
+          <button
+            variant="secondary"
+            className="button-primary"
+            onClick={handleCloseModal}
+          >
+            No
+          </button>
+        </Modal.Footer>
+      </Modal>
     </>
-  )
+  );
 };

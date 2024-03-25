@@ -49589,6 +49589,75 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                 fileName: "src/components/account-view/account-view.jsx",
                 lineNumber: 76,
                 columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                variant: "primary",
+                className: "button-primary",
+                onClick: handleShowModal,
+                children: "Delete account"
+            }, void 0, false, {
+                fileName: "src/components/account-view/account-view.jsx",
+                lineNumber: 136,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default), {
+                show: showModal,
+                onHide: handleCloseModal,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Header, {
+                        closeButton: true,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Title, {
+                            children: "Delete account"
+                        }, void 0, false, {
+                            fileName: "src/components/account-view/account-view.jsx",
+                            lineNumber: 145,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/account-view/account-view.jsx",
+                        lineNumber: 144,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Body, {
+                        children: "Confirm delete account?"
+                    }, void 0, false, {
+                        fileName: "src/components/account-view/account-view.jsx",
+                        lineNumber: 147,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Footer, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                variant: "primary",
+                                className: "button-primary",
+                                onClick: handleDelete,
+                                children: "Yes"
+                            }, void 0, false, {
+                                fileName: "src/components/account-view/account-view.jsx",
+                                lineNumber: 149,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                variant: "secondary",
+                                className: "button-primary",
+                                onClick: handleCloseModal,
+                                children: "No"
+                            }, void 0, false, {
+                                fileName: "src/components/account-view/account-view.jsx",
+                                lineNumber: 156,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/account-view/account-view.jsx",
+                        lineNumber: 148,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/account-view/account-view.jsx",
+                lineNumber: 143,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
