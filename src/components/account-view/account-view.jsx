@@ -72,7 +72,7 @@ export const AccountView = ({ user, token, setUser }) => {
       .then((response) => {
         if (response.ok) {      
           alert("Account deleted successfully!");
-          navigate(`/signup`);
+          navigate("/signup");
           setUser(null);
           localStorage.clear();
         } else {
