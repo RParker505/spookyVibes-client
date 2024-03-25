@@ -7,13 +7,13 @@ import {ModalHeader} from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export const AccountView = ({ user, token, setUser }) => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-
+export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
+  
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
+  const [showModal, setShowModal] = useState(false);
 
   const navigate = useNavigate();
 
