@@ -18,47 +18,38 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
 
-  const formData = {
-    Username: username,
-    Password: password,
-    Email: email,
-    Birthday: birthday
-  };
-
   const handleUpdate = (event) => {
     event.preventDefault();
 
-    console.log("JSON data to be sent:");
+    const data = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday,
+    };
 
-    fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.Username}`, {
+    console.log("JSON data to be sent:", data);
+
+    fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${user.Username}`, {
       method: "PUT",
-      body: JSON.stringify(formData),
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
-      }
+      },
     })
-    .then(async (response) => {
+    .then((response) => {
       if (response.ok) {
-        const updatedUser = await response.json();
-        localStorage.setItem("user", JSON.stringify(updatedUser));
-        setUser(updatedUser);
-        alert("Account updated successfully!");
-        navigate("/account");
+        return response.json(), alert("Update successful!");
       } else {
-        const failed = await response.json();
-        const failedStr = JSON.stringify(failed);
-        const failedObj = JSON.parse(failedStr);
-
-        let whatFailed = failedObj.errors.map(x => x.msg)
-
-        alert(whatFailed)
+        alert("Update failed");
       }
     })
-    .catch((e) => {
-      alert("Something went wrong!");
-    })
-  };
+    .then((data) => {
+      localStorage.setItem("user", JSON.stringify(data));
+      setUser(data);
+    });
+};
 
   const handleDelete = (event) => {
     if (!password) {return;}
