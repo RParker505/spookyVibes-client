@@ -157,6 +157,7 @@ export const MainView = () => {
                                             user={user}
                                             token={token}
                                             setuser={setUser}
+                                            onLoggedOut={onLoggedOut}
                                         />
                                     </Col>
                                 )}
