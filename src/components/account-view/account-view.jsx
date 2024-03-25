@@ -118,7 +118,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
 
             <Form.Group controlId="formBirthday">
               <Form.Label className="mt-2">Birthday:</Form.Label>
-              <DatePicker
+              <Form.Control
                 type="date"
                 value={birthday}
                 onChange={(e) => setBirthday(e.target.value)}

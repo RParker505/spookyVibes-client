@@ -49548,7 +49548,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                             lineNumber: 120,
                                             columnNumber: 15
                                         }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDatepickerDefault.default), {
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                                             type: "date",
                                             value: birthday,
                                             onChange: (e)=>setBirthday(e.target.value),
