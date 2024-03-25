@@ -38,7 +38,6 @@ export const AccountView = ({ user, token, setUser }) => {
         localStorage.setItem("user", JSON.stringify(updatedUser));
         setUser(updatedUser);
         alert("Account updated successfully!");
-        window.location;
         navigate("/account");
       } else {
         const failed = await response.json();
