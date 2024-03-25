@@ -51,37 +51,22 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
     });
 };
 
-  const handleDelete = (event) => {
-    if (!password) {return;}
-
-    event.preventDefault();
-
-    if (confirm("Are you sure?") == false) {
-      alert("Deletion cancelled");
-    } else {
-      fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.Username}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      .then((response) => {
-        if (response.ok) {      
-          alert("Account deleted successfully!");
-          navigate("/signup");
-          setUser(null);
-          localStorage.clear();
-        } else {
-          const failed = response.json();
-          const failedStr = JSON.stringify(failed);
-          const failedObj = JSON.parse(failedStr);
-  
-          let whatFailed = failedObj.errors.map(x => x.msg)
-  
-          alert(whatFailed)
-        }
-      })
-    }
+  const handleDelete = () => {
+    
+    fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${user.Username}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      if (response.ok) {      
+        alert("Account deleted successfully!");
+        onLoggedOut();
+      } else {
+        alert("Something went wrong.");
+      }
+    })
   };
 
   return (
