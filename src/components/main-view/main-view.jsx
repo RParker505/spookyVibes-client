@@ -156,7 +156,7 @@ export const MainView = () => {
                                         <AccountView 
                                             user={user}
                                             token={token}
-                                            setuser={setUser}
+                                            setUser={setUser}
                                             onLoggedOut={onLoggedOut}
                                         />
                                     </Col>
