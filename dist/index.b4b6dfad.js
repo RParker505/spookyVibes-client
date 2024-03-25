@@ -49346,6 +49346,8 @@ var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
 var _modal = require("react-bootstrap/Modal");
 var _modalDefault = parcelHelpers.interopDefault(_modal);
 var _reactBootstrap = require("react-bootstrap");
@@ -49353,53 +49355,41 @@ var _reactDatepicker = require("react-datepicker");
 var _reactDatepickerDefault = parcelHelpers.interopDefault(_reactDatepicker);
 var _reactDatepickerCss = require("react-datepicker/dist/react-datepicker.css");
 var _s = $RefreshSig$();
-const AccountView = ({ user, token, setUser })=>{
+const AccountView = ({ user, token, setUser, onLoggedOut })=>{
     _s();
-    const storedUser = JSON.parse(localStorage.getItem("user"));
     const [username, setUsername] = (0, _react.useState)(user.Username);
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)(user.Email);
     const [birthday, setBirthday] = (0, _react.useState)(user.Birthday);
-    const navigate = useNavigate();
-    const formData = {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthday: birthday
-    };
-    const handleUpdate = (event)=>{
+    const [showModal, setShowModal] = (0, _react.useState)(false);
+    const handleShowModal = ()=>setShowModal(true);
+    const handleCloseModal = ()=>setShowModal(false);
+    const handleSubmit = (event)=>{
         event.preventDefault();
-        console.log("JSON data to be sent:");
-        fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.Username}`, {
+        const data = {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        };
+        console.log("JSON data to be sent:", data);
+        fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
-            body: JSON.stringify(formData),
+            body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
             }
-        }).then(async (response)=>{
-            if (response.ok) {
-                const updatedUser = await response.json();
-                localStorage.setItem("user", JSON.stringify(updatedUser));
-                setUser(updatedUser);
-                alert("Account updated successfully!");
-                navigate("/account");
-            } else {
-                const failed = await response.json();
-                const failedStr = JSON.stringify(failed);
-                const failedObj = JSON.parse(failedStr);
-                let whatFailed = failedObj.errors.map((x)=>x.msg);
-                alert(whatFailed);
-            }
-        }).catch((e)=>{
-            alert("Something went wrong!");
+        }).then((response)=>{
+            if (response.ok) return response.json(), alert("Update successful!");
+            else alert("Update failed");
+        }).then((data)=>{
+            localStorage.setItem("user", JSON.stringify(data));
+            setUser(data);
         });
     };
-    const handleDelete = (event)=>{
-        if (!password) return;
-        event.preventDefault();
-        if (confirm("Are you sure?") == false) alert("Deletion cancelled");
-        else fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.Username}`, {
+    const handleDelete = ()=>{
+        fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -49407,192 +49397,203 @@ const AccountView = ({ user, token, setUser })=>{
         }).then((response)=>{
             if (response.ok) {
                 alert("Account deleted successfully!");
-                navigate("/signup");
-                setUser(null);
-                localStorage.clear();
-            } else {
-                const failed = response.json();
-                const failedStr = JSON.stringify(failed);
-                const failedObj = JSON.parse(failedStr);
-                let whatFailed = failedObj.errors.map((x)=>x.msg);
-                alert(whatFailed);
-            }
+                onLoggedOut();
+            } else alert("Something went wrong.");
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
-            className: "justify-content-md-center w-100 mt-5",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
-                className: "mt-5 mb-5 formLabel",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "My SpookyVibes Profile"
+            }, void 0, false, {
+                fileName: "src/components/account-view/account-view.jsx",
+                lineNumber: 75,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+                className: "justify-content-md-center mt-5",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                        controlId: "formUsername",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                                children: "Username:"
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                children: "My Information"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 100,
-                                columnNumber: 13
+                                lineNumber: 78,
+                                columnNumber: 11
                             }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                                type: "text",
-                                className: "formInput",
-                                value: username,
-                                onChange: (e)=>setUsername(e.target.value),
-                                minLength: "5",
-                                required: true
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    "Username: ",
+                                    user.Username
+                                ]
+                            }, void 0, true, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 101,
-                                columnNumber: 13
+                                lineNumber: 79,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    "Email: ",
+                                    user.Email
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/account-view/account-view.jsx",
+                                lineNumber: 80,
+                                columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 99,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                        controlId: "formPassword",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                                className: "mt-2",
-                                children: "Password:"
-                            }, void 0, false, {
-                                fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 111,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                                type: "password",
-                                className: "formInput",
-                                placeholder: "********",
-                                value: password,
-                                onChange: (e)=>setPassword(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 112,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 110,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                        controlId: "formEmail",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                                className: "mt-2",
-                                children: "Email:"
-                            }, void 0, false, {
-                                fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 123,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                                type: "email",
-                                className: "formInput",
-                                value: email,
-                                onChange: (e)=>setEmail(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 124,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 122,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                        controlId: "formBirthday",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                                className: "mt-2",
-                                children: "Birthday:"
-                            }, void 0, false, {
-                                fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 133,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDatepickerDefault.default), {
-                                id: "formBirthday",
-                                showYearDropdown: true,
-                                scrollableYearDropdown: true,
-                                yearDropdownItemNumber: 30,
-                                showMonthDropdown: true,
-                                minDate: "1941",
-                                maxDate: new Date(),
-                                dropdownMode: "select",
-                                calendarClassName: "pickerCal",
-                                wrapperClassName: "formInput",
-                                dateFormatCalendar: " ",
-                                dateFormat: "MMM dd YYYY",
-                                selected: birthday,
-                                onChange: (birthday)=>setBirthday(birthday)
-                            }, void 0, false, {
-                                fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 134,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 132,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                        className: "mt-4 primaryButton w-100",
-                        variant: "primary",
-                        type: "button",
-                        onClick: handleUpdate,
-                        children: "Update Information"
-                    }, void 0, false, {
-                        fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 152,
+                        lineNumber: 77,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "warning",
-                        children: [
-                            "-- DANGER ZONE --",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                className: "primaryButton deleteButton w-100",
-                                variant: "danger",
-                                type: "button",
-                                onClick: handleDelete,
-                                children: "Delete Account"
-                            }, void 0, false, {
-                                fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 154,
-                                columnNumber: 9
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
+                            onSubmit: handleSubmit,
+                            className: "mt-5 mb-5 formLabel",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                                    controlId: "formUsername",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                                            children: "Username:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 86,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                                            type: "text",
+                                            className: "formInput",
+                                            value: username,
+                                            onChange: (e)=>setUsername(e.target.value),
+                                            required: true
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 87,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/account-view/account-view.jsx",
+                                    lineNumber: 85,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                                    controlId: "formPassword",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                                            className: "mt-2",
+                                            children: "Password:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 97,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                                            type: "password",
+                                            className: "formInput",
+                                            placeholder: "********",
+                                            value: password,
+                                            onChange: (e)=>setPassword(e.target.value),
+                                            required: true
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 98,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/account-view/account-view.jsx",
+                                    lineNumber: 96,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                                    controlId: "formEmail",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                                            className: "mt-2",
+                                            children: "Email:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 109,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                                            type: "email",
+                                            className: "formInput",
+                                            value: email,
+                                            onChange: (e)=>setEmail(e.target.value),
+                                            required: true
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 110,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/account-view/account-view.jsx",
+                                    lineNumber: 108,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                                    controlId: "formBirthday",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                                            className: "mt-2",
+                                            children: "Birthday:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 120,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDatepickerDefault.default), {
+                                            type: "date",
+                                            value: birthday,
+                                            onChange: (e)=>setBirthday(e.target.value),
+                                            required: true
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 121,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/account-view/account-view.jsx",
+                                    lineNumber: 119,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                                    variant: "primary",
+                                    type: "submit",
+                                    children: "Update My Details"
+                                }, void 0, false, {
+                                    fileName: "src/components/account-view/account-view.jsx",
+                                    lineNumber: 129,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/account-view/account-view.jsx",
+                            lineNumber: 84,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 153,
-                        columnNumber: 11
+                        lineNumber: 83,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 98,
-                columnNumber: 9
+                lineNumber: 76,
+                columnNumber: 7
             }, undefined)
-        }, void 0, false, {
-            fileName: "src/components/account-view/account-view.jsx",
-            lineNumber: 97,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false);
+        ]
+    }, void 0, true);
 };
-_s(AccountView, "mWZUoFPMLwHcpLHJCxfpjXxf920=", true);
+_s(AccountView, "QFk4YLx5rMd8mhUENmS7N0jbKfo=");
 _c = AccountView;
 var _c;
 $RefreshReg$(_c, "AccountView");
@@ -49602,7 +49603,7 @@ $RefreshReg$(_c, "AccountView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-datepicker":"dQTBp","react-datepicker/dist/react-datepicker.css":"iNFJG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","react-bootstrap/Row":"cMC39","react-bootstrap/Modal":"aNVmp"}],"dQTBp":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-datepicker":"dQTBp","react-datepicker/dist/react-datepicker.css":"iNFJG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","react-bootstrap/Row":"cMC39","react-bootstrap/Modal":"aNVmp","react-bootstrap/Col":"2L2I6"}],"dQTBp":[function(require,module,exports) {
 /*!
   react-datepicker v6.6.0
   https://github.com/Hacker0x01/react-datepicker

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import {ModalHeader} from "react-bootstrap";
 import DatePicker from "react-datepicker";
@@ -18,7 +19,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
 
-  const handleUpdate = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = {
@@ -71,65 +72,65 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
 
   return (
     <>
-      <Row className="justify-content-md-center w-100 mt-5">
-        <Form className="mt-5 mb-5 formLabel">
-          <Form.Group controlId="formUsername">
-            <Form.Label>Username:</Form.Label>
-            <Form.Control 
-            type="text"
-            className="formInput"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            minLength="5"
-            required/>
-          </Form.Group>
+      <h1>My SpookyVibes Profile</h1>
+      <Row className="justify-content-md-center mt-5">
+        <Col>
+          <h3>My Information</h3>
+          <div>Username: {user.Username}</div>
+          <div>Email: {user.Email}</div>
+        </Col>
 
-          <Form.Group controlId="formPassword">
-            <Form.Label className="mt-2">Password:</Form.Label>
-            <Form.Control 
-            type="password"
-            className="formInput"
-            placeholder="********"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            />
-          </Form.Group>
+        <Col>
+          <Form onSubmit={handleSubmit} className="mt-5 mb-5 formLabel">
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username:</Form.Label>
+              <Form.Control 
+                type="text"
+                className="formInput"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </Form.Group>
 
-          <Form.Group controlId="formEmail">
-            <Form.Label className="mt-2">Email:</Form.Label>
-            <Form.Control  
-            type="email"
-            className="formInput"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required />
-          </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label className="mt-2">Password:</Form.Label>
+              <Form.Control 
+                type="password"
+                className="formInput"
+                placeholder="********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </Form.Group>
 
-          <Form.Group controlId="formBirthday">
-            <Form.Label className="mt-2">Birthday:</Form.Label>
-            <DatePicker
-            id="formBirthday"
-            showYearDropdown
-            scrollableYearDropdown
-            yearDropdownItemNumber={30}
-            showMonthDropdown
-            minDate="1941"
-            maxDate={new Date()}
-            dropdownMode="select"
-            calendarClassName="pickerCal"
-            wrapperClassName="formInput"
-            dateFormatCalendar=" "
-            dateFormat="MMM dd YYYY"
-            selected={birthday}
-            onChange={(birthday) => setBirthday(birthday)}
-            />
-          </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label className="mt-2">Email:</Form.Label>
+              <Form.Control  
+                type="email"
+                className="formInput"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required 
+              />
+            </Form.Group>
 
-        <Button className="mt-4 primaryButton w-100" variant="primary" type="button" onClick={handleUpdate}>Update Information</Button>
-          <p className="warning">-- DANGER ZONE --
-        <Button className="primaryButton deleteButton w-100" variant="danger" type="button" onClick={handleDelete}>Delete Account</Button></p>
-        </Form>
+            <Form.Group controlId="formBirthday">
+              <Form.Label className="mt-2">Birthday:</Form.Label>
+              <DatePicker
+                type="date"
+                value={birthday}
+                onChange={(e) => setBirthday(e.target.value)}
+                required
+              />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+                Update My Details
+            </Button>
+          </Form>
+        </Col>
       </Row>
     </>
   )
