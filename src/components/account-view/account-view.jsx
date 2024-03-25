@@ -14,7 +14,7 @@ export const AccountView = ({ user, token, setUser }) => {
 
   const navigate = useNavigate();
 
-  const data = {
+  const formData = {
     Username: username,
     Password: password,
     Email: email,
@@ -28,7 +28,7 @@ export const AccountView = ({ user, token, setUser }) => {
 
     fetch(`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.Username}`, {
       method: "PUT",
-      body: JSON.stringify(data),
+      body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`
