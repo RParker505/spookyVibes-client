@@ -13,6 +13,7 @@ import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 //export MainView component to make it avl for use in other components, modules
 export const MainView = () => {
+    //keep user logged in as long as user and token are in localStorage
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
 
