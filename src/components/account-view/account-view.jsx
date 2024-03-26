@@ -5,8 +5,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import {ModalHeader} from "react-bootstrap";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
   
@@ -22,11 +20,13 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const formattedBirthday = new Date(birthday).toISOString().split("T")[0]; // Convert to YYYY-MM-DD format
+
     const data = {
       Username: username,
       Password: password,
       Email: email,
-      Birthday: birthday,
+      Birthday: formattedBirthday,
     };
 
     console.log("JSON data to be sent:", data);
@@ -116,7 +116,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
               />
             </Form.Group>
 
-            {/* <Form.Group controlId="formBirthday">
+            <Form.Group controlId="formBirthday">
               <Form.Label className="mt-2">Birthday:</Form.Label>
               <Form.Control
                 type="date"
@@ -124,7 +124,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
                 onChange={(e) => setBirthday(e.target.value)}
                 required
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <Button variant="primary" type="submit">
                 Update My Details
