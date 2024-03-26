@@ -49467,7 +49467,8 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                             type: "text",
                                             className: "formInput",
                                             value: username,
-                                            /*onChange={(e) => setUsername(e.target.value)}*/ required: true
+                                            onChange: (e)=>setUsername(e.target.value),
+                                            required: true
                                         }, void 0, false, {
                                             fileName: "src/components/account-view/account-view.jsx",
                                             lineNumber: 87,

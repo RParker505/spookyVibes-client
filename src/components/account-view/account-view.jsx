@@ -88,7 +88,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
                 type="text"
                 className="formInput"
                 value={username}
-                /*onChange={(e) => setUsername(e.target.value)}*/
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </Form.Group>
