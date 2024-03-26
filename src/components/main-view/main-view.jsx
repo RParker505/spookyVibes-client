@@ -13,12 +13,12 @@ import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 //export MainView component to make it avl for use in other components, modules
 export const MainView = () => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
 
     const [movies, setMovies] = useState([]);
-    const [user, setUser] = useState(null); //if user is logged in, biz as usual; if not, display LoginView
-    const [token, setToken] = useState(null);//on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
+    const [user, setUser] = useState(storedUser? storedUser: null); //if user is logged in, biz as usual; if not, display LoginView
+    const [token, setToken] = useState(storedToken? storedToken: null);//on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
 
     const onLoggedIn = (user, token) => {
         setUser(user);

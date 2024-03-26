@@ -27200,11 +27200,11 @@ var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const storedUser = localStorage.getItem("user");
+    const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
     const [movies, setMovies] = (0, _react.useState)([]);
-    const [user, setUser] = (0, _react.useState)(null); //if user is logged in, biz as usual; if not, display LoginView
-    const [token, setToken] = (0, _react.useState)(null); //on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null); //if user is logged in, biz as usual; if not, display LoginView
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null); //on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
     const onLoggedIn = (user, token)=>{
         setUser(user);
         setToken(token);
@@ -27468,7 +27468,7 @@ const MainView = ()=>{
         columnNumber: 9
     }, undefined);
 };
-_s(MainView, "G+gU3cQbHvHlzXx+eNRbbuJNBF0=");
+_s(MainView, "ZjAK+yQGhwgNVZ/dVWWcJR/pFVE=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
