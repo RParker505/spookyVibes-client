@@ -11,7 +11,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
   
   const [username, setUsername] = useState(user.Username);
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(user.Password);
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
   const [showModal, setShowModal] = useState(false);
@@ -88,7 +88,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
                 type="text"
                 className="formInput"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                /*onChange={(e) => setUsername(e.target.value)}*/
                 required
               />
             </Form.Group>
@@ -100,7 +100,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
                 className="formInput"
                 placeholder="********"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                /*onChange={(e) => setPassword(e.target.value)}*/
                 required
               />
             </Form.Group>
@@ -116,7 +116,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBirthday">
+            {/* <Form.Group controlId="formBirthday">
               <Form.Label className="mt-2">Birthday:</Form.Label>
               <Form.Control
                 type="date"
@@ -124,7 +124,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
                 onChange={(e) => setBirthday(e.target.value)}
                 required
               />
-            </Form.Group>
+            </Form.Group> */}
 
             <Button variant="primary" type="submit">
                 Update My Details

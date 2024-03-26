@@ -49358,7 +49358,7 @@ var _s = $RefreshSig$();
 const AccountView = ({ user, token, setUser, onLoggedOut })=>{
     _s();
     const [username, setUsername] = (0, _react.useState)(user.Username);
-    const [password, setPassword] = (0, _react.useState)("");
+    const [password, setPassword] = (0, _react.useState)(user.Password);
     const [email, setEmail] = (0, _react.useState)(user.Email);
     const [birthday, setBirthday] = (0, _react.useState)(user.Birthday);
     const [showModal, setShowModal] = (0, _react.useState)(false);
@@ -49467,8 +49467,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                             type: "text",
                                             className: "formInput",
                                             value: username,
-                                            onChange: (e)=>setUsername(e.target.value),
-                                            required: true
+                                            /*onChange={(e) => setUsername(e.target.value)}*/ required: true
                                         }, void 0, false, {
                                             fileName: "src/components/account-view/account-view.jsx",
                                             lineNumber: 87,
@@ -49496,8 +49495,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                             className: "formInput",
                                             placeholder: "********",
                                             value: password,
-                                            onChange: (e)=>setPassword(e.target.value),
-                                            required: true
+                                            /*onChange={(e) => setPassword(e.target.value)}*/ required: true
                                         }, void 0, false, {
                                             fileName: "src/components/account-view/account-view.jsx",
                                             lineNumber: 98,
@@ -49535,33 +49533,6 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                 }, void 0, true, {
                                     fileName: "src/components/account-view/account-view.jsx",
                                     lineNumber: 108,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                                    controlId: "formBirthday",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                                            className: "mt-2",
-                                            children: "Birthday:"
-                                        }, void 0, false, {
-                                            fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 120,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                                            type: "date",
-                                            value: birthday,
-                                            onChange: (e)=>setBirthday(e.target.value),
-                                            required: true
-                                        }, void 0, false, {
-                                            fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 121,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/account-view/account-view.jsx",
-                                    lineNumber: 119,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -49662,7 +49633,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
         ]
     }, void 0, true);
 };
-_s(AccountView, "QFk4YLx5rMd8mhUENmS7N0jbKfo=");
+_s(AccountView, "F71sWowYh3FWvXoTx8FxI3Yawxw=");
 _c = AccountView;
 var _c;
 $RefreshReg$(_c, "AccountView");
