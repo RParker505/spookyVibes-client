@@ -98,7 +98,6 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
               <Form.Control 
                 type="password"
                 className="formInput"
-                placeholder="********"
                 value={password}
                 /*onChange={(e) => setPassword(e.target.value)}*/
                 required
