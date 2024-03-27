@@ -79,7 +79,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
       <Row className="justify-content-md-center mt-5">
         <Card className="my-5 border-5 border-dark">
           <Card.Body className="ud-card text-center">
-            <Card.Title>My SpookyVibes Profile</Card.Title>
+            <Card.Title>My SpookyVibes Details</Card.Title>
             <Card.Text><b>Username:</b> {user.Username}</Card.Text>
             <Card.Text><b>Email:</b> {user.Email}</Card.Text>
           </Card.Body>

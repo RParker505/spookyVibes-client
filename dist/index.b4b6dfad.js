@@ -49416,7 +49416,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                         className: "ud-card text-center",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
-                                children: "My SpookyVibes Profile"
+                                children: "My SpookyVibes Details"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
                                 lineNumber: 82,
