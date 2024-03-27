@@ -49349,9 +49349,12 @@ var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
 var _modal = require("react-bootstrap/Modal");
 var _modalDefault = parcelHelpers.interopDefault(_modal);
 var _reactBootstrap = require("react-bootstrap");
+var _accountViewJsx = require("./account-view.jsx");
 var _s = $RefreshSig$();
 const AccountView = ({ user, token, setUser, onLoggedOut })=>{
     _s();
@@ -49409,7 +49412,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                 children: "My SpookyVibes Profile"
             }, void 0, false, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 77,
+                lineNumber: 79,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -49421,7 +49424,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                 children: "My Details"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 80,
+                                lineNumber: 82,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -49431,7 +49434,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 81,
+                                lineNumber: 83,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -49441,13 +49444,13 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 82,
+                                lineNumber: 84,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 79,
+                        lineNumber: 81,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -49456,7 +49459,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                 children: "Update My Details"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 86,
+                                lineNumber: 88,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
@@ -49470,7 +49473,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                                 children: "Username:"
                                             }, void 0, false, {
                                                 fileName: "src/components/account-view/account-view.jsx",
-                                                lineNumber: 89,
+                                                lineNumber: 91,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -49481,13 +49484,13 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "src/components/account-view/account-view.jsx",
-                                                lineNumber: 90,
+                                                lineNumber: 92,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 88,
+                                        lineNumber: 90,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -49498,7 +49501,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                                 children: "Email:"
                                             }, void 0, false, {
                                                 fileName: "src/components/account-view/account-view.jsx",
-                                                lineNumber: 111,
+                                                lineNumber: 113,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -49509,13 +49512,13 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "src/components/account-view/account-view.jsx",
-                                                lineNumber: 112,
+                                                lineNumber: 114,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 110,
+                                        lineNumber: 112,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -49526,7 +49529,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                                 children: "Birthday:"
                                             }, void 0, false, {
                                                 fileName: "src/components/account-view/account-view.jsx",
-                                                lineNumber: 122,
+                                                lineNumber: 124,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -49536,13 +49539,13 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "src/components/account-view/account-view.jsx",
-                                                lineNumber: 123,
+                                                lineNumber: 125,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 121,
+                                        lineNumber: 123,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -49551,25 +49554,25 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                         children: "Update My Details"
                                     }, void 0, false, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 131,
+                                        lineNumber: 133,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 87,
+                                lineNumber: 89,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 85,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 78,
+                lineNumber: 80,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -49579,7 +49582,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                 children: "Delete account"
             }, void 0, false, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 138,
+                lineNumber: 140,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default), {
@@ -49592,19 +49595,19 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                             children: "Delete account"
                         }, void 0, false, {
                             fileName: "src/components/account-view/account-view.jsx",
-                            lineNumber: 147,
+                            lineNumber: 149,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 146,
+                        lineNumber: 148,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Body, {
                         children: "Confirm delete account?"
                     }, void 0, false, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 149,
+                        lineNumber: 151,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Footer, {
@@ -49616,7 +49619,7 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                 children: "Yes"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 151,
+                                lineNumber: 153,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -49626,19 +49629,19 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                 children: "No"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 158,
+                                lineNumber: 160,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 150,
+                        lineNumber: 152,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 145,
+                lineNumber: 147,
                 columnNumber: 7
             }, undefined)
         ]
@@ -49654,6 +49657,6 @@ $RefreshReg$(_c, "AccountView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","react-bootstrap/Row":"cMC39","react-bootstrap/Modal":"aNVmp","react-bootstrap/Col":"2L2I6"}],"lJZlQ":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequire1074")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","react-bootstrap/Row":"cMC39","react-bootstrap/Modal":"aNVmp","react-bootstrap/Col":"2L2I6","react-bootstrap/Card":"lAynp","./account-view.jsx":"jjc4b"}],"lJZlQ":[function() {},{}]},["5qIsR","1xC6H","d8Dch"], "d8Dch", "parcelRequire1074")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
