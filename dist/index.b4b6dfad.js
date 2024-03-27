@@ -49480,33 +49480,6 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                                    controlId: "formPassword",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                                            className: "mt-2",
-                                            children: "Password:"
-                                        }, void 0, false, {
-                                            fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 97,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                                            type: "password",
-                                            className: "formInput",
-                                            value: password,
-                                            /*onChange={(e) => setPassword(e.target.value)}*/ required: true
-                                        }, void 0, false, {
-                                            fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 98,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/account-view/account-view.jsx",
-                                    lineNumber: 96,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
                                     controlId: "formEmail",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {

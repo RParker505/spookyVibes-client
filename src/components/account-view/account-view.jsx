@@ -93,16 +93,16 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
               />
             </Form.Group>
 
-            <Form.Group controlId="formPassword">
+            {/* <Form.Group controlId="formPassword">
               <Form.Label className="mt-2">Password:</Form.Label>
               <Form.Control 
                 type="password"
                 className="formInput"
                 value={password}
-                /*onChange={(e) => setPassword(e.target.value)}*/
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="formEmail">
               <Form.Label className="mt-2">Email:</Form.Label>
