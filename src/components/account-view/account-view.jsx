@@ -77,12 +77,13 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
       <h1>My SpookyVibes Profile</h1>
       <Row className="justify-content-md-center mt-5">
         <Col>
-          <h3>My Information</h3>
+          <h3>My Details</h3>
           <div>Username: {user.Username}</div>
           <div>Email: {user.Email}</div>
         </Col>
 
         <Col>
+          <h3>Update My Details</h3>
           <Form onSubmit={handleSubmit} className="mt-5 mb-5 formLabel">
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
