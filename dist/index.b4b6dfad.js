@@ -27433,6 +27433,7 @@ const MainView = ()=>{
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _accountView.AccountView), {
                                         user: user,
                                         token: token,
+                                        movies: movies,
                                         setUser: setUser,
                                         onLoggedOut: onLoggedOut
                                     }, void 0, false, {

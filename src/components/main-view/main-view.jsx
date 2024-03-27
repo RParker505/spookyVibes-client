@@ -157,6 +157,7 @@ export const MainView = () => {
                                         <AccountView 
                                             user={user}
                                             token={token}
+                                            movies={movies}
                                             setUser={setUser}
                                             onLoggedOut={onLoggedOut}
                                         />
