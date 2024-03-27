@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import {ModalHeader} from "react-bootstrap";
-import "./account-view.jsx";
+import "./account-view.scss";
 
 export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
   
@@ -76,14 +76,17 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
 
   return (
     <>
-      <h1>My SpookyVibes Profile</h1>
       <Row className="justify-content-md-center mt-5">
-        <Col>
-          <h3>My Details</h3>
-          <div>Username: {user.Username}</div>
-          <div>Email: {user.Email}</div>
-        </Col>
+        <Card className="my-5 border-5 border-dark">
+          <Card.Body className="ud-card text-center">
+            <Card.Title>My SpookyVibes Profile</Card.Title>
+            <Card.Text><b>Username:</b> {user.Username}</Card.Text>
+            <Card.Text><b>Email:</b> {user.Email}</Card.Text>
+          </Card.Body>
+        </Card>
+      </Row>
 
+      <Row className="justify-content-md-center mt-5"> 
         <Col>
           <h3>Update My Details</h3>
           <Form onSubmit={handleSubmit} className="mt-5 mb-5 formLabel">
@@ -130,42 +133,44 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button mt-5 variant="primary" type="submit">
                 Update My Details
             </Button>
           </Form>
         </Col>
       </Row>
 
-      <Button
-        variant="primary"
-        className="button-primary"
-        onClick={handleShowModal}
-      >
-        Delete account
-      </Button>
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete account</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Confirm delete account?</Modal.Body>
-        <Modal.Footer>
-          <button
-            variant="primary"
-            className="button-primary"
-            onClick={handleDelete}
-          >
-            Yes
-          </button>
-          <button
-            variant="secondary"
-            className="button-primary"
-            onClick={handleCloseModal}
-          >
-            No
-          </button>
-        </Modal.Footer>
-      </Modal>
+      <Row className="justify-content-md-center mt-5"> 
+        <Button
+          variant="danger"
+          className="button-danger"
+          onClick={handleShowModal}
+        >
+          Delete account
+        </Button>
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete account</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Confirm delete account?</Modal.Body>
+          <Modal.Footer>
+            <button
+              variant="primary"
+              className="button-primary"
+              onClick={handleDelete}
+            >
+              Yes
+            </button>
+            <button
+              variant="secondary"
+              className="button-primary"
+              onClick={handleCloseModal}
+            >
+              No
+            </button>
+          </Modal.Footer>
+        </Modal>
+      </Row>
     </>
   );
 };

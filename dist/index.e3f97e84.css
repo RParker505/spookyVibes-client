@@ -19,6 +19,11 @@
   font-weight: 600;
 }
 
+.ud-card {
+  background-color: #f8f8ff;
+  font-weight: 600;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
