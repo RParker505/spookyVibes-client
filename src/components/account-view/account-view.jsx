@@ -48,6 +48,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
       }
     })
     .then((data) => {
+      console.log("DATA", data);
       localStorage.setItem("user", JSON.stringify(data));
       setUser(data);
     });
