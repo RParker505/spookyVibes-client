@@ -41,7 +41,8 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
     })
     .then((response) => {
       if (response.ok) {
-        return response.json(), alert("Update successful!");
+        alert("Update successful!"),
+        return response.json();
       } else {
         alert("Update failed");
       }
