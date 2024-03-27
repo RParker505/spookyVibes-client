@@ -6,15 +6,18 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import {ModalHeader} from "react-bootstrap";
+import {MovieCard} from "../movie-card/movie-card";
 import "./account-view.scss";
 
-export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
+export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
   
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState(user.Password);
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
   const [showModal, setShowModal] = useState(false);
+
+  let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
