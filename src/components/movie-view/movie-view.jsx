@@ -1,48 +1,38 @@
-import PropTypes from "prop-types";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import "./movie-view.scss";
 
-export const MovieView = ({movieData, onBackClick}) => {
+export const MovieView = ({movies}) => {
+    const { movieId } = useParams();
+
+    const movie = movies.find((m) => m.id === movieId);
+
     return (
         <div>
             <div>
-                <img height={500} alt={`${movieData.title} poster`} src={movieData.image} />
+                <img height={500} alt={`${movie.title} poster`} src={movie.image} />
             </div>
             <div>
                 <span>Title: </span>
-                <span>{movieData.title}</span>
+                <span>{movie.title}</span>
             </div>
             <div>
                 <span>Description: </span>
-                <span>{movieData.description}</span>
+                <span>{movie.description}</span>
             </div>
             <div>
                 <span>Director: </span>
-                <span>{movieData.director}</span>
+                <span>{movie.director}</span>
             </div>
             <div>
                 <span>Genre: </span>
-                <span>{movieData.genre}</span>
+                <span>{movie.genre}</span>
             </div>
-            <button
-                onClick={onBackClick}
-                className="back-button"
-                style={{cursor:"pointer"}}
-            >
-                Back
-            </button>
+            <Link to={`/`}>
+                <button className="back-button" style={{cursor:"pointer"}}>
+                    Back
+                </button>
+            </Link>
         </div>
     );
-};
-
-//Define props constraints for MovieView
-//props object must include a movie object, which requires a title, image, director, genre and description
-MovieView.propTypes = {
-    movieData: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        director: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired
-    }).isRequired,
-    onBackClick: PropTypes.func.isRequired,//must include onBackClick and it must be a function
 };
