@@ -6,7 +6,7 @@ import "./movie-card.scss";
 
 export const MovieCard = ({movieData}) => {
     return (
-        <Card className="h-100">
+        <Card className="mt-5 h-100">
             <Card.Img variant="top" src={movieData.image} rounded="true" />
             <Card.Body>
                 <Card.Title>{movieData.title}</Card.Title>
@@ -16,6 +16,13 @@ export const MovieCard = ({movieData}) => {
                     More Details
                     </Button>
                 </Link>
+                <br></br>
+                <Button className="mt-3" variant="outline-danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+</svg>
+                     Add to Favorites
+                </Button>
             </Card.Body>
         </Card>
     );
