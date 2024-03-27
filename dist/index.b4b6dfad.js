@@ -49570,7 +49570,6 @@ const AccountView = ({ user, token, setUser, onLoggedOut })=>{
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                                    "mt-5": true,
                                     variant: "primary",
                                     type: "submit",
                                     children: "Update My Details"

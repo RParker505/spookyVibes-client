@@ -133,7 +133,7 @@ export const AccountView = ({ user, token, setUser, onLoggedOut }) => {
               />
             </Form.Group>
 
-            <Button mt-5 variant="primary" type="submit">
+            <Button variant="primary" type="submit">
                 Update My Details
             </Button>
           </Form>
