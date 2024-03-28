@@ -143,6 +143,15 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
         </Col>
       </Row>
 
+      <Row>
+        <h3>My Favorite Spooky Movies</h3>
+        {favoriteMovies.map((movie) => (
+          <Col key={movie.id} md={4}>
+            <MovieCard movie={movie}></MovieCard>
+          </Col>
+        ))}
+      </Row>
+
       <Row className="justify-content-md-center mt-5"> 
         <Button
           variant="danger"

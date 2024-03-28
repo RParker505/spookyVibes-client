@@ -49635,6 +49635,35 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        children: "My Favorite Spooky Movies"
+                    }, void 0, false, {
+                        fileName: "src/components/account-view/account-view.jsx",
+                        lineNumber: 147,
+                        columnNumber: 9
+                    }, undefined),
+                    favoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                            md: 4,
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                                movie: movie
+                            }, void 0, false, {
+                                fileName: "src/components/account-view/account-view.jsx",
+                                lineNumber: 150,
+                                columnNumber: 13
+                            }, undefined)
+                        }, movie.id, false, {
+                            fileName: "src/components/account-view/account-view.jsx",
+                            lineNumber: 149,
+                            columnNumber: 11
+                        }, undefined))
+                ]
+            }, void 0, true, {
+                fileName: "src/components/account-view/account-view.jsx",
+                lineNumber: 146,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
                 className: "justify-content-md-center mt-5",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -49644,7 +49673,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                         children: "Delete account"
                     }, void 0, false, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 147,
+                        lineNumber: 156,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default), {
@@ -49657,19 +49686,19 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                     children: "Delete account"
                                 }, void 0, false, {
                                     fileName: "src/components/account-view/account-view.jsx",
-                                    lineNumber: 156,
+                                    lineNumber: 165,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 155,
+                                lineNumber: 164,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Body, {
                                 children: "Confirm delete account?"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 158,
+                                lineNumber: 167,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Footer, {
@@ -49681,7 +49710,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                         children: "Yes"
                                     }, void 0, false, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 160,
+                                        lineNumber: 169,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -49691,25 +49720,25 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                         children: "No"
                                     }, void 0, false, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 167,
+                                        lineNumber: 176,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 159,
+                                lineNumber: 168,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 154,
+                        lineNumber: 163,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 146,
+                lineNumber: 155,
                 columnNumber: 7
             }, undefined)
         ]
