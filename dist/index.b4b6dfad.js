@@ -27369,7 +27369,8 @@ const MainView = ()=>{
                                             md: 4,
                                             lg: 3,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                                                movieData: movie
+                                                movieData: movie,
+                                                setUser: setUser
                                             }, void 0, false, {
                                                 fileName: "src/components/main-view/main-view.jsx",
                                                 lineNumber: 124,
@@ -27498,7 +27499,7 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _movieCardScss = require("./movie-card.scss");
-const MovieCard = ({ movieData })=>{
+const MovieCard = ({ movieData, setUser })=>{
     const token = localStorage.getItem("token");
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const addFavMovie = (movieId)=>{

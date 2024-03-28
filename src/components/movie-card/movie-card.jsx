@@ -4,7 +4,7 @@ import {Button, Card} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import "./movie-card.scss";
 
-export const MovieCard = ({movieData}) => {
+export const MovieCard = ({movieData, setUser}) => {
 
     const token = localStorage.getItem("token");
     const storedUser = JSON.parse(localStorage.getItem("user"));
