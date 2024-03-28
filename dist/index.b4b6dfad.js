@@ -49751,7 +49751,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                         variant: "danger",
-                        className: "button-danger",
+                        className: "button-danger mt-3",
                         onClick: handleShowModal,
                         children: "Delete account"
                     }, void 0, false, {

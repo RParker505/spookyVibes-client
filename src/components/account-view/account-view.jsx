@@ -162,7 +162,7 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
       <Row className="justify-content-md-center mt-5"> 
         <Button
           variant="danger"
-          className="button-danger"
+          className="button-danger mt-3"
           onClick={handleShowModal}
         >
           Delete account
