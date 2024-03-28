@@ -33,6 +33,30 @@ export const MovieCard = ({movieData, setUser}) => {
         });
     };
 
+    const delFavMovie = (movieId) => {
+        if (!token) return;
+
+        fetch (`https://spookyvibes-d90e0cfd567b.herokuapp.com/users/${storedUser.Username}/movies/${movieId}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+        }) 
+        .then((response) => {
+            if (response.ok) {
+                alert("Movie removed from favorites!");
+                return response.json();
+            } else {
+                alert("Update failed");
+            }
+        })
+        .then((data) => {
+        console.log("DATA", data);
+        localStorage.setItem("user", JSON.stringify(data));
+        setUser(data);
+        });
+    };
+
     return (
         <Card className="mt-5 h-100">
             <Card.Img variant="top" src={movieData.image} rounded="true" />
@@ -51,7 +75,7 @@ export const MovieCard = ({movieData, setUser}) => {
                 </svg>
                      Add to Favorites
                 </Button>
-                <Button className="mt-3" variant="outline-dark" /*onClick={() => addFavMovie(movieData.id)}*/ >
+                <Button className="mt-3" variant="outline-dark" onClick={() => delFavMovie(movieData.id)} >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
                 </svg>
