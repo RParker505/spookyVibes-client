@@ -17,7 +17,7 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
   const [birthday, setBirthday] = useState(user.Birthday);
   const [showModal, setShowModal] = useState(false);
 
-  let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
+  let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.id));
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -148,7 +148,7 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
         { favoriteMovies.length !== 0 ? (
 
           favoriteMovies.map((movie) => (
-            <Col key={movie.id} md={4}>
+            <Col key={movie.id}>
               <MovieCard movieData={movie}></MovieCard>
             </Col>
           ))

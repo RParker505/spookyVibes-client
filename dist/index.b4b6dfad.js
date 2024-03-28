@@ -49472,7 +49472,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
     const [email, setEmail] = (0, _react.useState)(user.Email);
     const [birthday, setBirthday] = (0, _react.useState)(user.Birthday);
     const [showModal, setShowModal] = (0, _react.useState)(false);
-    let favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m._id));
+    let favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m.id));
     const handleShowModal = ()=>setShowModal(true);
     const handleCloseModal = ()=>setShowModal(false);
     const handleSubmit = (event)=>{
@@ -49715,7 +49715,6 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                         columnNumber: 9
                     }, undefined),
                     favoriteMovies.length !== 0 ? favoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                            md: 4,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movieData: movie
                             }, void 0, false, {
