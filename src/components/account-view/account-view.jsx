@@ -145,11 +145,18 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
 
       <Row>
         <h3>My Favorite Spooky Movies</h3>
-        {favoriteMovies.map((movie) => (
-          <Col key={movie.id} md={4}>
-            <MovieCard movie={movie}></MovieCard>
-          </Col>
-        ))}
+        { favoriteMovies.length !== 0 ? (
+
+          favoriteMovies.map((movie) => (
+            <Col key={movie.id} md={4}>
+              <MovieCard movieData={movie}></MovieCard>
+            </Col>
+          ))
+          ) : (
+            <Col xs={12}>
+              <p>No movies favorited yet</p>
+            </Col>
+        )}
       </Row>
 
       <Row className="justify-content-md-center mt-5"> 
