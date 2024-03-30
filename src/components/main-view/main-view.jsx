@@ -4,7 +4,6 @@ import {MovieView} from "../movie-view/movie-view"; //component to display all d
 import {LoginView} from "../login-view/login-view"; //component to display login form
 import {SignupView} from "../signup-view/signup-view"; //component to display signup form
 import {NavigationBar} from "../navigation-bar/navigation-bar"; //component to display navbar
-import {ProfileView} from "../profile-view/profile-view"; //component to display user details
 import {AccountView} from "../account-view/account-view"; //test component for user details
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
