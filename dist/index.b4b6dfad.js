@@ -49716,7 +49716,8 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                     }, undefined),
                     favoriteMovies.length !== 0 ? favoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                                movieData: movie
+                                movieData: movie,
+                                setUser: setUser
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
                                 lineNumber: 152,
