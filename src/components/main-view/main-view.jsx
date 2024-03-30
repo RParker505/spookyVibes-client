@@ -134,23 +134,6 @@ export const MainView = () => {
                         element={
                             <>
                                 {!user ? (
-                                    <Navigate to="/login" replace />
-                                ) : (
-                                    <Col md={6}>
-                                        <ProfileView 
-                                            user={user}
-                                            token={token}
-                                        />
-                                    </Col>
-                                )}
-                            </>
-                        }
-                    />
-                    <Route
-                        path="/account"
-                        element={
-                            <>
-                                {!user ? (
                                     <Navigate to="/account" replace />
                                 ) : (
                                     <Col md={6}>
