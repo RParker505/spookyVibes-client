@@ -11,10 +11,21 @@ import "./account-view.scss";
 
 export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
   
+  // User's stored birthday
+  let storedBirthday = user.Birthday;
+  // Convert the string to a Date object
+  let birthdayDate = new Date(storedBirthday);
+  // Get the components of the date (month, day, year)
+  let month = birthdayDate.getMonth() + 1; // Months are zero-based, so we add 1
+  let day = birthdayDate.getDate() + 1;
+  let year = birthdayDate.getFullYear();
+  // Format the date as MM/DD/YYYY
+  let formattedDate = (month < 10 ? '0' : '') + month + '/' + (day < 10 ? '0' : '') + day + '/' + year;
+
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState(user.Password);
   const [email, setEmail] = useState(user.Email);
-  const [birthday, setBirthday] = useState(user.Birthday);
+  const [birthday, setBirthday] = useState(formattedDate);
   const [showModal, setShowModal] = useState(false);
 
   let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.id));

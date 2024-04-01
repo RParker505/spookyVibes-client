@@ -49050,10 +49050,20 @@ var _accountViewScss = require("./account-view.scss");
 var _s = $RefreshSig$();
 const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
     _s();
+    // User's stored birthday
+    let storedBirthday = user.Birthday;
+    // Convert the string to a Date object
+    let birthdayDate = new Date(storedBirthday);
+    // Get the components of the date (month, day, year)
+    let month = birthdayDate.getMonth() + 1; // Months are zero-based, so we add 1
+    let day = birthdayDate.getDate() + 1;
+    let year = birthdayDate.getFullYear();
+    // Format the date as MM/DD/YYYY
+    let formattedDate = (month < 10 ? "0" : "") + month + "/" + (day < 10 ? "0" : "") + day + "/" + year;
     const [username, setUsername] = (0, _react.useState)(user.Username);
     const [password, setPassword] = (0, _react.useState)(user.Password);
     const [email, setEmail] = (0, _react.useState)(user.Email);
-    const [birthday, setBirthday] = (0, _react.useState)(user.Birthday);
+    const [birthday, setBirthday] = (0, _react.useState)(formattedDate);
     const [showModal, setShowModal] = (0, _react.useState)(false);
     let favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m.id));
     const handleShowModal = ()=>setShowModal(true);
@@ -49112,7 +49122,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                 children: "My SpookyVibes Details"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 85,
+                                lineNumber: 96,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -49121,7 +49131,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                         children: "Username:"
                                     }, void 0, false, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 86,
+                                        lineNumber: 97,
                                         columnNumber: 24
                                     }, undefined),
                                     " ",
@@ -49129,7 +49139,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 86,
+                                lineNumber: 97,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
@@ -49138,7 +49148,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                         children: "Email:"
                                     }, void 0, false, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 87,
+                                        lineNumber: 98,
                                         columnNumber: 24
                                     }, undefined),
                                     " ",
@@ -49146,23 +49156,23 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 87,
+                                lineNumber: 98,
                                 columnNumber: 13
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 84,
+                        lineNumber: 95,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/account-view/account-view.jsx",
-                    lineNumber: 83,
+                    lineNumber: 94,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 82,
+                lineNumber: 93,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -49173,7 +49183,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                             children: "Update My Details"
                         }, void 0, false, {
                             fileName: "src/components/account-view/account-view.jsx",
-                            lineNumber: 94,
+                            lineNumber: 105,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -49181,12 +49191,12 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                 children: "All fields are required."
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 95,
+                                lineNumber: 106,
                                 columnNumber: 14
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/account-view/account-view.jsx",
-                            lineNumber: 95,
+                            lineNumber: 106,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
@@ -49200,7 +49210,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                             children: "Username:"
                                         }, void 0, false, {
                                             fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 98,
+                                            lineNumber: 109,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -49211,13 +49221,13 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                             required: true
                                         }, void 0, false, {
                                             fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 99,
+                                            lineNumber: 110,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/account-view/account-view.jsx",
-                                    lineNumber: 97,
+                                    lineNumber: 108,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -49228,7 +49238,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                             children: "Email:"
                                         }, void 0, false, {
                                             fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 120,
+                                            lineNumber: 131,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -49236,33 +49246,6 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                             className: "formInput",
                                             value: email,
                                             onChange: (e)=>setEmail(e.target.value),
-                                            required: true
-                                        }, void 0, false, {
-                                            fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 121,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/account-view/account-view.jsx",
-                                    lineNumber: 119,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                                    controlId: "formBirthday",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                                            className: "mt-2",
-                                            children: "Birthday:"
-                                        }, void 0, false, {
-                                            fileName: "src/components/account-view/account-view.jsx",
-                                            lineNumber: 131,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                                            type: "date",
-                                            value: birthday,
-                                            onChange: (e)=>setBirthday(e.target.value),
                                             required: true
                                         }, void 0, false, {
                                             fileName: "src/components/account-view/account-view.jsx",
@@ -49275,30 +49258,57 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                     lineNumber: 130,
                                     columnNumber: 13
                                 }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                                    controlId: "formBirthday",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                                            className: "mt-2",
+                                            children: "Birthday:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 142,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                                            type: "date",
+                                            value: birthday,
+                                            onChange: (e)=>setBirthday(e.target.value),
+                                            required: true
+                                        }, void 0, false, {
+                                            fileName: "src/components/account-view/account-view.jsx",
+                                            lineNumber: 143,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/account-view/account-view.jsx",
+                                    lineNumber: 141,
+                                    columnNumber: 13
+                                }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                                     variant: "primary",
                                     type: "submit",
                                     children: "Update My Details"
                                 }, void 0, false, {
                                     fileName: "src/components/account-view/account-view.jsx",
-                                    lineNumber: 140,
+                                    lineNumber: 151,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/account-view/account-view.jsx",
-                            lineNumber: 96,
+                            lineNumber: 107,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/account-view/account-view.jsx",
-                    lineNumber: 93,
+                    lineNumber: 104,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 92,
+                lineNumber: 103,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -49307,7 +49317,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                         children: "My Favorite Spooky Movies"
                     }, void 0, false, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 148,
+                        lineNumber: 159,
                         columnNumber: 9
                     }, undefined),
                     favoriteMovies.length !== 0 ? favoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -49317,12 +49327,12 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                 favoriteMovies: favoriteMovies
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 153,
+                                lineNumber: 164,
                                 columnNumber: 15
                             }, undefined)
                         }, movie.id, false, {
                             fileName: "src/components/account-view/account-view.jsx",
-                            lineNumber: 152,
+                            lineNumber: 163,
                             columnNumber: 13
                         }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                         xs: 12,
@@ -49330,18 +49340,18 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                             children: "No movies favorited yet"
                         }, void 0, false, {
                             fileName: "src/components/account-view/account-view.jsx",
-                            lineNumber: 158,
+                            lineNumber: 169,
                             columnNumber: 15
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 157,
+                        lineNumber: 168,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 147,
+                lineNumber: 158,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -49354,7 +49364,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                         children: "Delete account"
                     }, void 0, false, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 164,
+                        lineNumber: 175,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default), {
@@ -49367,19 +49377,19 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                     children: "Delete account"
                                 }, void 0, false, {
                                     fileName: "src/components/account-view/account-view.jsx",
-                                    lineNumber: 173,
+                                    lineNumber: 184,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 172,
+                                lineNumber: 183,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Body, {
                                 children: "Confirm delete account?"
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 175,
+                                lineNumber: 186,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default).Footer, {
@@ -49391,7 +49401,7 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                         children: "Yes"
                                     }, void 0, false, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 177,
+                                        lineNumber: 188,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -49401,31 +49411,31 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                                         children: "No"
                                     }, void 0, false, {
                                         fileName: "src/components/account-view/account-view.jsx",
-                                        lineNumber: 184,
+                                        lineNumber: 195,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/account-view/account-view.jsx",
-                                lineNumber: 176,
+                                lineNumber: 187,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/account-view/account-view.jsx",
-                        lineNumber: 171,
+                        lineNumber: 182,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/account-view/account-view.jsx",
-                lineNumber: 163,
+                lineNumber: 174,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(AccountView, "F71sWowYh3FWvXoTx8FxI3Yawxw=");
+_s(AccountView, "uovK6ukit9HtX6Kxs0ZoQImNY/A=");
 _c = AccountView;
 var _c;
 $RefreshReg$(_c, "AccountView");
