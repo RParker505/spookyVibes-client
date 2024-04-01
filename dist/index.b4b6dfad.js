@@ -27205,6 +27205,7 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([]);
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null); //if user is logged in, biz as usual; if not, display LoginView
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null); //on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
+    let favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m.id));
     const onLoggedIn = (user, token)=>{
         setUser(user);
         setToken(token);
@@ -27237,7 +27238,6 @@ const MainView = ()=>{
     }, [
         token
     ]); //token as dependency array will fetch every time token changes (i.e. after a user logs in)
-    let favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m.id));
     //one return statement in one row. Nested elements are conditionally rendered using ternary operator ?:
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
         children: [

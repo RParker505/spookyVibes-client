@@ -20,6 +20,8 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser? storedUser: null); //if user is logged in, biz as usual; if not, display LoginView
     const [token, setToken] = useState(storedToken? storedToken: null);//on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
 
+    let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.id));
+
     const onLoggedIn = (user, token) => {
         setUser(user);
         setToken(token);
@@ -54,8 +56,6 @@ export const MainView = () => {
                 setMovies(moviesFromApi);
             });
     }, [token]);//token as dependency array will fetch every time token changes (i.e. after a user logs in)
-
-    let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.id));
 
     //one return statement in one row. Nested elements are conditionally rendered using ternary operator ?:
     return (
