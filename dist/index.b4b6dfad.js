@@ -27467,7 +27467,7 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _movieCardScss = require("./movie-card.scss");
-const MovieCard = ({ movieData, setUser })=>{
+const MovieCard = ({ movieData, setUser, favoriteMovies })=>{
     const token = localStorage.getItem("token");
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const addFavMovie = (movieId)=>{
@@ -49311,7 +49311,8 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                     favoriteMovies.length !== 0 ? favoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movieData: movie,
-                                setUser: setUser
+                                setUser: setUser,
+                                favoriteMovies: favoriteMovies
                             }, void 0, false, {
                                 fileName: "src/components/account-view/account-view.jsx",
                                 lineNumber: 153,

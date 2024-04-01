@@ -150,7 +150,7 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
 
           favoriteMovies.map((movie) => (
             <Col key={movie.id}>
-              <MovieCard movieData={movie} setUser={setUser}></MovieCard>
+              <MovieCard movieData={movie} setUser={setUser} favoriteMovies={favoriteMovies}></MovieCard>
             </Col>
           ))
           ) : (
