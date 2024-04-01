@@ -92,6 +92,7 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
       <Row className="justify-content-md-center mt-5"> 
         <Col>
           <h3>Update My Details</h3>
+          <p><i>All fields are required.</i></p>
           <Form onSubmit={handleSubmit} className="mt-5 mb-5 formLabel">
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
