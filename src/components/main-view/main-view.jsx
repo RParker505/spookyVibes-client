@@ -55,6 +55,8 @@ export const MainView = () => {
             });
     }, [token]);//token as dependency array will fetch every time token changes (i.e. after a user logs in)
 
+    let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.id));
+
     //one return statement in one row. Nested elements are conditionally rendered using ternary operator ?:
     return (
         <BrowserRouter>
@@ -120,7 +122,7 @@ export const MainView = () => {
                                     <>
                                     {movies.map((movie) => (
                                         <Col className="mb-5" key={movie.id} xs={12} sm={6} md={4} lg={3}>
-                                            <MovieCard movieData={movie} setUser={setUser} />
+                                            <MovieCard movieData={movie} setUser={setUser} favoriteMovies={favoriteMovies} />
                                         </Col>
                                     ))}
                                     </>
