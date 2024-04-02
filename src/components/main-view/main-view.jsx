@@ -20,7 +20,11 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser? storedUser: null); //if user is logged in, biz as usual; if not, display LoginView
     const [token, setToken] = useState(storedToken? storedToken: null);//on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
 
-    let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m.id));
+    //Set check to prevent favoriteMovies from running if user is not logged in
+    const favoriteMovies = 
+        user && user.FavoriteMovies
+        ? movies.filter((m) => user.FavoriteMovies.includes(m.id))
+        : [];
 
     const onLoggedIn = (user, token) => {
         setUser(user);
