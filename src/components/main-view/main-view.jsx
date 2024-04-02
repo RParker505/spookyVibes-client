@@ -4,6 +4,7 @@ import {MovieView} from "../movie-view/movie-view"; //component to display all d
 import {LoginView} from "../login-view/login-view"; //component to display login form
 import {SignupView} from "../signup-view/signup-view"; //component to display signup form
 import {NavigationBar} from "../navigation-bar/navigation-bar"; //component to display navbar
+import {AccountView} from "../account-view/account-view"; //test component for user details
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
@@ -11,12 +12,30 @@ import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 //export MainView component to make it avl for use in other components, modules
 export const MainView = () => {
+    //keep user logged in as long as user and token are in localStorage
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
 
     const [movies, setMovies] = useState([]);
     const [user, setUser] = useState(storedUser? storedUser: null); //if user is logged in, biz as usual; if not, display LoginView
     const [token, setToken] = useState(storedToken? storedToken: null);//on page refresh, user and token are initialized with whatever is in localStorage. If empty, both are null.
+
+    //Set check to prevent favoriteMovies from running if user is not logged in
+    const favoriteMovies = 
+        user && user.FavoriteMovies
+        ? movies.filter((m) => user.FavoriteMovies.includes(m.id))
+        : [];
+
+    const onLoggedIn = (user, token) => {
+        setUser(user);
+        setToken(token);
+      };
+    
+    const onLoggedOut = () => {
+        setUser(null);
+        setToken(null); 
+        localStorage.clear();
+    };
 
     useEffect (() => {
         if (!token) {
@@ -47,11 +66,7 @@ export const MainView = () => {
         <BrowserRouter>
             <NavigationBar
                 user={user}
-                onLoggedOut={() => {
-                    setUser(null)
-                    setToken(null);
-                    localStorage.clear();
-                }}
+                onLoggedOut={onLoggedOut}
             />
             <Row className="justify-content-md-center">
                 <Routes>
@@ -77,7 +92,7 @@ export const MainView = () => {
                                     <Navigate to="/" />
                                 ) : (
                                     <Col md={5}>
-                                        <LoginView onLoggedIn={(user, token) => {setUser(user); setToken(token);}} />
+                                        <LoginView onLoggedIn={onLoggedIn} />
                                     </Col>
                                 )}
                             </>
@@ -111,10 +126,30 @@ export const MainView = () => {
                                     <>
                                     {movies.map((movie) => (
                                         <Col className="mb-5" key={movie.id} xs={12} sm={6} md={4} lg={3}>
-                                            <MovieCard movieData={movie} />
+                                            <MovieCard movieData={movie} setUser={setUser} favoriteMovies={favoriteMovies} />
                                         </Col>
                                     ))}
                                     </>
+                                )}
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/profile"
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to="/account" replace />
+                                ) : (
+                                    <Col md={6}>
+                                        <AccountView 
+                                            user={user}
+                                            token={token}
+                                            movies={movies}
+                                            setUser={setUser}
+                                            onLoggedOut={onLoggedOut}
+                                        />
+                                    </Col>
                                 )}
                             </>
                         }
