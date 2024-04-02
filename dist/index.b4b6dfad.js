@@ -49053,12 +49053,11 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
     _s();
     // User's stored birthday
     let storedBirthday = user.Birthday;
-    // Convert the string to a Date object
-    let birthdayDate = new Date(storedBirthday);
-    // Get the components of the date (month, day, year)
-    let month = birthdayDate.getMonth() + 1; // Months are zero-based, so we add 1
-    let day = birthdayDate.getDate();
-    let year = birthdayDate.getFullYear();
+    // Parse the stored birthday string
+    let birthdayParts = storedBirthday.split("T")[0].split("-");
+    let year = parseInt(birthdayParts[0]);
+    let month = parseInt(birthdayParts[1]);
+    let day = parseInt(birthdayParts[2]);
     // Format the date as MM/DD/YYYY
     let formattedDate = year + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
     const [username, setUsername] = (0, _react.useState)(user.Username);
@@ -49339,8 +49338,18 @@ const AccountView = ({ user, token, movies, setUser, onLoggedOut })=>{
                         }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                         xs: 12,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: "No movies favorited yet"
-                        }, void 0, false, {
+                            children: [
+                                "No movies favorited yet. ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    href: "/",
+                                    children: "Start favoriting!"
+                                }, void 0, false, {
+                                    fileName: "src/components/account-view/account-view.jsx",
+                                    lineNumber: 170,
+                                    columnNumber: 43
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/components/account-view/account-view.jsx",
                             lineNumber: 170,
                             columnNumber: 15

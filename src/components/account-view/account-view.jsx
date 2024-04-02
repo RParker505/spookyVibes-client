@@ -13,14 +13,14 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
   
   // User's stored birthday
   let storedBirthday = user.Birthday;
-    // Convert the string to a Date object
-    let birthdayDate = new Date(storedBirthday);
-    // Get the components of the date (month, day, year)
-    let month = birthdayDate.getMonth() + 1; // Months are zero-based, so we add 1
-    let day = birthdayDate.getDate();
-    let year = birthdayDate.getFullYear();
-    // Format the date as MM/DD/YYYY
-    let formattedDate = year + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
+  // Parse the stored birthday string
+  let birthdayParts = storedBirthday.split('T')[0].split('-');
+  let year = parseInt(birthdayParts[0]);
+  let month = parseInt(birthdayParts[1]);
+  let day = parseInt(birthdayParts[2]);
+
+  // Format the date as MM/DD/YYYY
+  let formattedDate = year + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
 
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState(user.Password);
@@ -167,7 +167,7 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
           ))
           ) : (
             <Col xs={12}>
-              <p>No movies favorited yet</p>
+              <p>No movies favorited yet. <a href="/">Start favoriting!</a></p>
             </Col>
         )}
       </Row>
