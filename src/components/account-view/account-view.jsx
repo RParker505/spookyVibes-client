@@ -82,6 +82,7 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
       if (response.ok) {      
         alert("Account deleted successfully!");
         onLoggedOut();
+        location.assign("/signup");
       } else {
         alert("Something went wrong.");
       }
