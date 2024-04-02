@@ -17,10 +17,10 @@ export const AccountView = ({ user, token, movies, setUser, onLoggedOut }) => {
   let birthdayDate = new Date(storedBirthday);
   // Get the components of the date (month, day, year)
   let month = birthdayDate.getMonth() + 1; // Months are zero-based, so we add 1
-  let day = birthdayDate.getDate() + 1;
+  let day = birthdayDate.getDate();
   let year = birthdayDate.getFullYear();
   // Format the date as MM/DD/YYYY
-  let formattedDate = (month < 10 ? '0' : '') + month + '/' + (day < 10 ? '0' : '') + day + '/' + year;
+  let formattedDate = year + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
 
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState(user.Password);
