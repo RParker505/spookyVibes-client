@@ -1,76 +1,48 @@
 # SpookyVibes: Client-Side
 
-## Goal
-To build the server-side component of a “movies” web application. The web application will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.
-
 ## Overview
 This is the frontend for an app called SpookyVibes. It's a full-stack application built with React, Node.js, Express, and MongoDB.
+* Server-side repository for this app is here: https://github.com/RParker505/movie_api
 
 ## View the App
-View the client-side of the app here: https://spookyvibes.netlify.app/login
+View the app here: https://spookyvibes.netlify.app/login
 
 ## Features
 The app will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies.
 
+## Technologies Used
+* **Node.js:** Install it on your local machine.
+* **npm:** (Node Package Manager)
+* **React:** A JavaScript library for building user interfaces.
+* **React Bootstrap:** A front-end framework built on top of Bootstrap for React components.
+* **React Router:** A routing library for React that enables navigation between different components.
+
+## Main Components
+* **MainView:** Is the entry point, orchestrating navigation and rendering of different views.
+* **NavigationBar:** Provides navigation based on user authentication status.
+* **MovieView:** Displays detailed information about movies.
+* **MovieCard:** Represents a single movie selected by the user, showing details and allowing users to add or remove the movie to/from their list of favorites.
+* **SignupView & LoginView:** Handle user registration and authentication.
+* **AccountView:** Allows users to view and edit their profile details, manage favorite movies, and delete their accounts.
+
+## API
+SpookyVibes interacts with a custom movie API available at [Movie-API](https://github.com/RParker505/movie_api). The API supplies data about movies, including titles, descriptions, genres, and directors. Refer to the API documentation for more details on available endpoints and data formats.
+
 ## Dependencies
-* **Node.js:** JavaScript runtime for server-side scripting.
-* **Express:** Back end web application framework for building RESTful APIs with Node.js.
-* **MongoDB with Mongoose:** NoSQL database and Object Data Modeling library for Node.js.
-* **Postman:** Allows you to design, develop, test and monitor APIs.
-* **body-parser:** Express middleware for parsing request bodies.
-* **express-validator:** Middleware for input validation in Express.
-* **jsonwebtoken:** Library for JWT ( JSON Web Token) generation and verification.
-* **lodash:** Utility library for JavaScript.
-* **passport:** Authentication middleware for Node.js.
-* **passport-jwt:** Passport strategy for JWT authentication.
-* **passport-local:** Passport strategy for username/password authentication.
-* **uuid:** Library for generating unique identifiers.
+```
+"bootstrap": "^5.3.3",
+"prop-types": "^15.8.1",
+"react": "^18.2.0",
+"react-bootstrap": "^2.10.1",
+"react-datepicker": "^6.6.0",
+"react-dom": "^18.2.0",
+"react-router": "^6.22.3",
+"react-router-dom": "^6.22.3"
+```
 
-## Endpoints
-You can also view all endpoints here: https://spookyvibes-d90e0cfd567b.herokuapp.com/documentation.html
-
-### Get all movies
-* URL: `/movies`
-* Request body: None
-* Response body: A JSON object holding data about all movies.
-### Get a single movie
-* URL: `/movies/[movieTitle]`
-* Request body: None
-* Response body: A JSON object holding data about a single movie, containing title, genre, director and description.
-### Get genre information
-* URL: `/movies/genre/[genreName]`
-* Request body: None
-* Response body: A JSON object holding data about a single genre, containing genre name and description.
-### Get director information
-* URL: `/movies/director/[directorName]`
-* Request body: None
-* Response body: A JSON object holding data about a single director, containing director name, bio, and birth year.
-### Get all users
-* URL: `/users`
-* Request body: None
-* Response body: A JSON object holding data about all users.
-### Get a single user
-* URL: `/users/[Username]`
-* Request body: None
-* Response body: A JSON object holding data about a single user, containing username, password, email, birthday, favorite movies.
-### Post new user (register)
-* URL: `/users`
-* Request body: A JSON object holding data about the user to add to database.
-* Response body: A JSON object holding data about the user that was added, including an new unique ID.
-### Update (put) user information
-* URL: `/users/[Username]`
-* Request body: A JSON object holding data about the user which needs to be updated.
-* Response body: A JSON object holding data with the updated user information.
-### Post movie to users favorite movies list
-* URL: `/users/[Username]/movies/[MovieID]`
-* Request body: None
-* Response body: A JSON object holding data about the updated user information, including FavoriteMovies.
-### Delete movie from users favorite movie list
-* URL: `/users/[Username]/movies/[MovieID]`
-* Request body: None
-* Response body: A JSON object holding data about the updated user information, including FavoriteMovies.
-### Delete user
-* URL: `/users/[Username]`
-* Request body: None
-* Response body: Text message indicating whether the user has been successfully removed from the database.
-
+## Dev Dependencies
+```
+"@parcel/transformer-sass": "^2.12.0",
+"parcel": "^2.12.0",
+"process": "^0.11.10"
+```
